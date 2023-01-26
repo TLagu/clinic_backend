@@ -33,16 +33,11 @@ import java.util.stream.Collectors;
 @RequestMapping("/api/auth")
 public class AuthController {
 
-    final
-    AuthenticationManager authenticationManager;
-    final
-    UserRepository userRepository;
-    final
-    RoleRepository roleRepository;
-    final
-    PasswordEncoder encoder;
-    final
-    JwtUtils jwtUtils;
+    final AuthenticationManager authenticationManager;
+    final UserRepository userRepository;
+    final RoleRepository roleRepository;
+    final PasswordEncoder encoder;
+    final JwtUtils jwtUtils;
 
     public AuthController(AuthenticationManager authenticationManager, UserRepository userRepository, RoleRepository roleRepository, PasswordEncoder encoder, JwtUtils jwtUtils) {
         this.authenticationManager = authenticationManager;
@@ -94,9 +89,9 @@ public class AuthController {
         Set<Role> roles = new HashSet<>();
 
         if (strRoles == null) {
-            Role userRole = roleRepository.findByName(ERole.ROLE_PATIENT)
+            Role patientRole = roleRepository.findByName(ERole.ROLE_PATIENT)
                     .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
-            roles.add(userRole);
+            roles.add(patientRole);
         } else {
             strRoles.forEach(role -> {
                 switch (role) {
@@ -105,15 +100,20 @@ public class AuthController {
                                 .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
                         roles.add(adminRole);
                     }
-                    case "mod" -> {
-                        Role modRole = roleRepository.findByName(ERole.ROLE_SECRETARY)
+                    case "doctor" -> {
+                        Role doctorRole = roleRepository.findByName(ERole.ROLE_DOCTOR)
                                 .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
-                        roles.add(modRole);
+                        roles.add(doctorRole);
+                    }
+                    case "secretary" -> {
+                        Role secretaryRole = roleRepository.findByName(ERole.ROLE_SECRETARY)
+                                .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+                        roles.add(secretaryRole);
                     }
                     default -> {
-                        Role userRole = roleRepository.findByName(ERole.ROLE_PATIENT)
+                        Role patientRole = roleRepository.findByName(ERole.ROLE_PATIENT)
                                 .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
-                        roles.add(userRole);
+                        roles.add(patientRole);
                     }
                 }
             });

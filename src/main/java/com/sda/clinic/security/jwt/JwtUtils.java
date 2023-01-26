@@ -2,15 +2,17 @@ package com.sda.clinic.security.jwt;
 
 import com.sda.clinic.security.services.UserDetailsImpl;
 import io.jsonwebtoken.*;
+import io.jsonwebtoken.io.Decoders;
+import io.jsonwebtoken.security.Keys;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseCookie;
 import org.springframework.stereotype.Component;
 import org.springframework.web.util.WebUtils;
 
+import java.security.Key;
 import java.util.Date;
 
 @Component
@@ -18,14 +20,11 @@ public class JwtUtils {
 
     private static final Logger logger = LoggerFactory.getLogger(JwtUtils.class);
 
-    @Value("${bezkoder.app.jwtSecret}${bezkoder.app.jwtSecret}${bezkoder.app.jwtSecret}${bezkoder.app.jwtSecret}${bezkoder.app.jwtSecret}${bezkoder.app.jwtSecret}")
-    private String jwtSecret;
+    private final Key jwtSecret = Keys.hmacShaKeyFor(Decoders.BASE64.decode(System.getenv("JWT_SECRET")));
 
-    @Value("${bezkoder.app.jwtExpirationMs}")
-    private int jwtExpirationMs;
+    private final int jwtExpirationMs = Integer.parseInt(System.getenv("JWT_EXPIRATIONS_MS"));
 
-    @Value("${bezkoder.app.jwtCookieName}")
-    private String jwtCookie;
+    private final String jwtCookie = System.getenv("JWT_COOKIE_NAME");
 
     public String getJwtFromCookies(HttpServletRequest request) {
         Cookie cookie = WebUtils.getCookie(request, jwtCookie);
@@ -71,7 +70,7 @@ public class JwtUtils {
                 .setSubject(username)
                 .setIssuedAt(new Date())
                 .setExpiration(new Date((new Date()).getTime() + jwtExpirationMs))
-                .signWith(SignatureAlgorithm.HS512, jwtSecret)
+                .signWith(jwtSecret, SignatureAlgorithm.HS512)
                 .compact();
     }
 
