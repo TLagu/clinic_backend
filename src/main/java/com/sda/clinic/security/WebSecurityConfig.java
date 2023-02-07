@@ -70,6 +70,14 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests()
                 .requestMatchers(HttpMethod.POST, "/api/auth/**").permitAll()
                 .requestMatchers(HttpMethod.POST, "/api/test/**").permitAll()
+                .requestMatchers("/swagger-resources").permitAll()
+                .requestMatchers("/swagger-resources/**").permitAll()
+                .requestMatchers("/configuration/ui").permitAll()
+                .requestMatchers("/configuration/security").permitAll()
+                .requestMatchers("swagger-ui/index.html#").permitAll()
+                .requestMatchers("/webjars/**").permitAll()
+                .requestMatchers("/v3/api-docs/**").permitAll()
+                .requestMatchers("/swagger-ui/**").permitAll()
                 .requestMatchers(toH2Console()).permitAll()
                 .anyRequest().authenticated();
 
