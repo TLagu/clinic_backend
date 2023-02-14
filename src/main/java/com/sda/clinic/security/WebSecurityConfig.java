@@ -1,15 +1,11 @@
 package com.sda.clinic.security;
 
-import com.sda.clinic.security.jwt.AuthEntryPointJwt;
-import com.sda.clinic.security.jwt.AuthTokenFilter;
-import com.sda.clinic.security.services.UserDetailsServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -17,25 +13,20 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import com.sda.clinic.security.jwt.AuthEntryPointJwt;
+import com.sda.clinic.security.jwt.AuthTokenFilter;
+import com.sda.clinic.security.services.UserDetailsServiceImpl;
+
 import static org.springframework.boot.autoconfigure.security.servlet.PathRequest.toH2Console;
 
 @Configuration
-//@EnableWebSecurity
-@EnableGlobalMethodSecurity(
-        // securedEnabled = true,
-        // jsr250Enabled = true,
-        prePostEnabled = true)
-public class WebSecurityConfig {
+public class WebSecurityConfig { // extends WebSecurityConfigurerAdapter {
 
-    final
+    @Autowired
     UserDetailsServiceImpl userDetailsService;
 
-    private final AuthEntryPointJwt unauthorizedHandler;
-
-    public WebSecurityConfig(UserDetailsServiceImpl userDetailsService, AuthEntryPointJwt unauthorizedHandler) {
-        this.userDetailsService = userDetailsService;
-        this.unauthorizedHandler = unauthorizedHandler;
-    }
+    @Autowired
+    private AuthEntryPointJwt unauthorizedHandler;
 
     @Bean
     public AuthTokenFilter authenticationJwtTokenFilter() {
@@ -68,25 +59,14 @@ public class WebSecurityConfig {
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .authorizeHttpRequests()
-                .requestMatchers(HttpMethod.POST, "/api/auth/**").permitAll()
-                .requestMatchers(HttpMethod.POST, "/api/test/**").permitAll()
-                .requestMatchers(HttpMethod.GET, "/api/test/all").permitAll()
-                .requestMatchers("/swagger-resources").permitAll()
-                .requestMatchers("/swagger-resources/**").permitAll()
-                .requestMatchers("/configuration/ui").permitAll()
-                .requestMatchers("/configuration/security").permitAll()
-                .requestMatchers("swagger-ui/index.html#").permitAll()
-                .requestMatchers("/webjars/**").permitAll()
-                .requestMatchers("/v3/api-docs/**").permitAll()
-                .requestMatchers("/swagger-ui/**").permitAll()
+                .requestMatchers("/api/auth/**", "/api/test/**", "/api/test/all").permitAll()
+                .requestMatchers("/swagger-resources", "/swagger-resources/**").permitAll()
+                .requestMatchers("/configuration/ui", "/configuration/security").permitAll()
+                .requestMatchers("swagger-ui/index.html#", "/swagger-ui/**").permitAll()
+                .requestMatchers("/webjars/**", "/v3/api-docs/**").permitAll()
                 .requestMatchers(toH2Console()).permitAll()
                 .anyRequest().authenticated();
 
-        http.csrf().ignoringRequestMatchers("/api/auth/**");
-        http.csrf().ignoringRequestMatchers("/api/test/**");
-        // fix H2 database console: Refused to display 'full authentication is required to access this resource'
-        http.csrf().ignoringRequestMatchers(toH2Console());
-        // fix H2 database console: Refused to display ' in a frame because it set 'X-Frame-Options' to 'deny'
         http.headers().frameOptions().sameOrigin();
 
         http.authenticationProvider(authenticationProvider());
@@ -95,5 +75,4 @@ public class WebSecurityConfig {
 
         return http.build();
     }
-
 }

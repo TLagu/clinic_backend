@@ -55,7 +55,7 @@ public class UserDetailsImpl implements UserDetails {
         return authorities;
     }
 
-    public Long id() {
+    public Long getId() {
         return id;
     }
 

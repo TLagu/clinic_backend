@@ -2,26 +2,34 @@ package com.sda.clinic.payload.response;
 
 import java.util.List;
 
-public class UserInfoResponse {
-
-    private Long id;
+public class JwtResponse {
+    private String token;
+    private String type = "Bearer";
     private String username;
     private String email;
-    private final List<String> roles;
+    private List<String> roles;
 
-    public UserInfoResponse(Long id, String username, String email, List<String> roles) {
-        this.id = id;
+    public JwtResponse(String accessToken, String username, String email, List<String> roles) {
+        this.token = accessToken;
         this.username = username;
         this.email = email;
         this.roles = roles;
     }
 
-    public Long getId() {
-        return id;
+    public String getAccessToken() {
+        return token;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setAccessToken(String accessToken) {
+        this.token = accessToken;
+    }
+
+    public String getTokenType() {
+        return type;
+    }
+
+    public void setTokenType(String tokenType) {
+        this.type = tokenType;
     }
 
     public String getEmail() {
@@ -43,5 +51,4 @@ public class UserInfoResponse {
     public List<String> getRoles() {
         return roles;
     }
-
 }

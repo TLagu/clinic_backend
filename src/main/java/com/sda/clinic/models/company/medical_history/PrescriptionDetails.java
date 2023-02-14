@@ -1,12 +1,12 @@
 package com.sda.clinic.models.company.medical_history;
 
 import com.sda.clinic.models.company.CompanyBase;
+import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
 import java.time.LocalDate;
 
 @Getter
@@ -15,7 +15,6 @@ import java.time.LocalDate;
 @AllArgsConstructor
 
 @Entity
-
 public class PrescriptionDetails extends CompanyBase {
 
     private long prescriptionId;
