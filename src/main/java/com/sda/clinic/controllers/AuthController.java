@@ -1,8 +1,8 @@
 package com.sda.clinic.controllers;
 
-import com.sda.clinic.models.ERole;
-import com.sda.clinic.models.Role;
-import com.sda.clinic.models.User;
+import com.sda.clinic.models.company.role.ERole;
+import com.sda.clinic.models.company.role.Role;
+import com.sda.clinic.models.company.user.User;
 import com.sda.clinic.payload.request.LoginRequest;
 import com.sda.clinic.payload.request.SignupRequest;
 import com.sda.clinic.payload.response.MessageResponse;

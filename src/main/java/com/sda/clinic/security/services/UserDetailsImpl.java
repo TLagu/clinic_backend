@@ -1,7 +1,7 @@
 package com.sda.clinic.security.services;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.sda.clinic.models.User;
+import com.sda.clinic.models.company.user.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

@@ -1,7 +1,7 @@
 package com.sda.clinic.repository;
 
-import com.sda.clinic.models.ERole;
-import com.sda.clinic.models.Role;
+import com.sda.clinic.models.company.role.ERole;
+import com.sda.clinic.models.company.role.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

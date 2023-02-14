@@ -1,6 +1,6 @@
 package com.sda.clinic.repository;
 
-import com.sda.clinic.models.User;
+import com.sda.clinic.models.company.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
