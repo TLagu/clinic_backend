@@ -1,11 +1,8 @@
 package com.sda.clinic.models.company.doctor;
 
 import com.sda.clinic.models.company.CompanyBase;
-import jakarta.persistence.Entity;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
@@ -15,8 +12,10 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 
 @Entity
+@Table(name = "doctors_calendars")
 public class DoctorCalendar extends CompanyBase {
 
+    @Column(name = "user_id")
     private long userId;
     private LocalDateTime startTime;
     private LocalDateTime endTime;

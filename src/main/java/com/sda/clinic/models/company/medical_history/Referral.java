@@ -1,11 +1,8 @@
 package com.sda.clinic.models.company.medical_history;
 
 import com.sda.clinic.models.company.CompanyBase;
-import jakarta.persistence.Entity;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 
 import java.time.LocalDate;
 
@@ -15,20 +12,21 @@ import java.time.LocalDate;
 @AllArgsConstructor
 
 @Entity
+@Table(name = "referrals")
 public class Referral extends CompanyBase {
 
     private String locality;
     private LocalDate referralDate;
     private String clinicName;
 
-    private String patient;
+    private String patientFullName;
     private int patientAge;
-    private String patientAdress;
+    private String patientAddress;
     private String patientPesel;
     private String patientPhone;
 
     private String diagnosis;
     private long diseaseType;
     private String purpose;
-    private String researchDone;
+    private String examinationsPerformed;
 }

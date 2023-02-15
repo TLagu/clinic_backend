@@ -1,11 +1,8 @@
 package com.sda.clinic.models.company.medical_history;
 
 import com.sda.clinic.models.company.CompanyBase;
-import jakarta.persistence.Entity;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Getter
 @Setter
@@ -13,6 +10,7 @@ import lombok.Setter;
 @AllArgsConstructor
 
 @Entity
+@Table(name = "appointments")
 public class Appointment extends CompanyBase {
 
     private long patientId;
@@ -22,12 +20,12 @@ public class Appointment extends CompanyBase {
     private String description;
     private String recommendations;
 
-    private long eSickLeave; //?
-    private long ePrescription;
-    private long eReferral;
+    private long sickLeave;
+    private long prescription;
+    private long referral;
 }
 
 // "e" or not to "e"
 // One-to-one SickLeave
-// One-to-?   Prescription
-// One-to-?   Referral
+// One-to-one Prescription
+// One-to-one Referral

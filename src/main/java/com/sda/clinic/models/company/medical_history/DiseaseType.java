@@ -1,11 +1,8 @@
 package com.sda.clinic.models.company.medical_history;
 
 import com.sda.clinic.models.company.CompanyBase;
-import jakarta.persistence.Entity;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Getter
 @Setter
@@ -13,6 +10,7 @@ import lombok.Setter;
 @AllArgsConstructor
 
 @Entity
+@Table(name = "diseases_types")
 public class DiseaseType extends CompanyBase {
 
     private String code;

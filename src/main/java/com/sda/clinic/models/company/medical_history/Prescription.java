@@ -1,11 +1,8 @@
 package com.sda.clinic.models.company.medical_history;
 
 import com.sda.clinic.models.company.CompanyBase;
-import jakarta.persistence.Entity;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -16,6 +13,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 
 @Entity
+@Table(name = "prescriptions")
 public class Prescription extends CompanyBase {
 
     private String code;
@@ -26,7 +24,9 @@ public class Prescription extends CompanyBase {
     private String pzw;
     private String phone;
     private LocalDateTime controlDate;
-    private int count;
+    private String number;
+    private String drug;
+    private LocalDate realizationDate;
+    private String packagingType;
+    private String dosage;
 }
-
-// one-to-many PrescriptionDetails

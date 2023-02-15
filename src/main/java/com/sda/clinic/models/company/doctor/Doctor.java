@@ -1,11 +1,8 @@
 package com.sda.clinic.models.company.doctor;
 
 import com.sda.clinic.models.company.CompanyBase;
-import jakarta.persistence.Entity;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Getter
 @Setter
@@ -13,10 +10,13 @@ import lombok.Setter;
 @AllArgsConstructor
 
 @Entity
-
+@Table(name = "doctors")
 public class Doctor extends CompanyBase{
 
+    @Column(name = "user_id")
     private long userId;
     private String pzw;
+
+    @Enumerated(EnumType.STRING)
     private AcademicTitle academicTitle;
 }
