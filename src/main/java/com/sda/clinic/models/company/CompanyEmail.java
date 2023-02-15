@@ -1,10 +1,8 @@
 package com.sda.clinic.models.company;
 
-import jakarta.persistence.Entity;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import lombok.*;
 
 @Getter
 @Setter
@@ -12,9 +10,12 @@ import lombok.Setter;
 @AllArgsConstructor
 
 @Entity
+@Table(name = "company_emails")
 public class CompanyEmail extends CompanyBase {
 
-    private long companyID; //FK
+    private long companyId; //FK
+
+    @Email
     private String email;
-    private boolean primary;
+//    private boolean primary;
 }

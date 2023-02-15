@@ -1,11 +1,7 @@
 package com.sda.clinic.models.company;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.MappedSuperclass;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -15,8 +11,7 @@ import java.util.UUID;
 public abstract class CompanyBase {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id; //PK
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID uuid; //UK
 
     private @Setter long createdBy;
@@ -24,5 +19,6 @@ public abstract class CompanyBase {
     private @Setter long updatedBy;
     private @Setter LocalDateTime updatedOn;
 
+    @Enumerated(EnumType.STRING)
     private Status status;
 }

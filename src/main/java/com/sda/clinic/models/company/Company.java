@@ -1,10 +1,7 @@
 package com.sda.clinic.models.company;
 
-import jakarta.persistence.Entity;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Getter
 @Setter
@@ -12,6 +9,7 @@ import lombok.Setter;
 @AllArgsConstructor
 
 @Entity
+@Table(name="company")
 public class Company extends CompanyBase {
 
     private String fullName;
@@ -21,7 +19,6 @@ public class Company extends CompanyBase {
     private String regon;
     private String krs;
     private String accountNumber;
-
     private String province;
     private String district;
     private String community;
@@ -35,7 +32,6 @@ public class Company extends CompanyBase {
     private float longitude;
     private float latitude;
 }
-
 // One-to-Many CompanyEmail
 // One-to-Many CompanyPhone
 

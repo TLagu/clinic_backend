@@ -1,10 +1,7 @@
 package com.sda.clinic.models.company;
 
-import jakarta.persistence.Entity;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Getter
 @Setter
@@ -12,7 +9,8 @@ import lombok.Setter;
 @AllArgsConstructor
 
 @Entity
-public class PhoneType extends CompanyBase{
+@Table(name = "phone_types")
+public class PhoneType extends CompanyBase {
 
     private String type;
 }
