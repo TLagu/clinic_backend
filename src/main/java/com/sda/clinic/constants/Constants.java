@@ -1,5 +1,5 @@
 package com.sda.clinic.constants;
 
 public class Constants {
-    public static final int DefaultPageSize = 6;
+    public static final int DefaultPageSize = 4;
 }

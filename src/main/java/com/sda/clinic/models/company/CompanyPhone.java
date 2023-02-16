@@ -12,9 +12,13 @@ import lombok.*;
 @Table(name="company_phones")
 public class CompanyPhone extends CompanyBase {
 
-    @Column(name = "company_id")
-    private long companyID; //FK
-    private long phoneType; //FK
-    private String phoneNo;
-//    private boolean primary;
+    @ManyToOne
+    @JoinColumn(name = "company", referencedColumnName = "id", nullable = false)
+    private Company company; //
+    @OneToOne
+    @JoinColumn(name = "phone_type")// FK
+    private PhoneType phoneType; //FK
+    private String phone;
+    @Column(name = "is_primary")
+    private boolean primary;
 }

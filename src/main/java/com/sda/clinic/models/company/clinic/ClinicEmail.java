@@ -14,10 +14,10 @@ import lombok.*;
 @Table(name = "clinics_emails")
 public class ClinicEmail extends CompanyBase {
 
-    @Column(name = "clinic_id")
-    private long clinicID; //FK
-
-    @Email
+    @ManyToOne
+    @JoinColumn(name = "clinic", referencedColumnName = "id", nullable = false)
+    private Clinic clinic; //FK
     private String email;
-//    private boolean primary;
+    @Column(name = "is_primary")
+    private boolean primary;
 }

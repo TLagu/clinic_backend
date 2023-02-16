@@ -1,8 +1,11 @@
 package com.sda.clinic.models.company.clinic;
 
 import com.sda.clinic.models.company.CompanyBase;
+import com.sda.clinic.models.company.PhoneType;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -13,9 +16,13 @@ import lombok.*;
 @Table(name = "clinics_phones")
 public class ClinicPhone extends CompanyBase {
 
-    @Column(name = "clinic_id")
-    private long clinicID; //FK
-    private long phoneType; //FK
-    private String phoneNo;
-//    private boolean primary;
+    @ManyToOne
+    @JoinColumn(name = "clinic", referencedColumnName = "id", nullable = false)
+    private Clinic clinic; //FK
+    @OneToOne
+    @JoinColumn(name = "phone_type")
+    private PhoneType phoneType; //FK
+    private String phone;
+    @Column (name = "is_primary")
+    private boolean primary;
 }

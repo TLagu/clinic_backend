@@ -12,6 +12,7 @@ import lombok.*;
 @Table(name = "phone_types")
 public class PhoneType extends CompanyBase {
 
+    @Column(name="phone_type")
     private String type;
 }
 

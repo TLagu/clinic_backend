@@ -11,7 +11,8 @@ import java.util.UUID;
 public abstract class CompanyBase {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private UUID uuid; //UK
 
     private @Setter long createdBy;
