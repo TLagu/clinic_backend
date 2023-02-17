@@ -16,6 +16,6 @@ public class ClinicService {
 
     public Page<ClinicDto> getAll(int page) {
         Pageable pageable = PageRequest.of(page, Constants.DefaultPageSize);
-        return repository.findAll(pageable).map(e -> ClinicDto.map(e));
+        return repository.findAll(pageable).map(ClinicDto::map);
     }
 }

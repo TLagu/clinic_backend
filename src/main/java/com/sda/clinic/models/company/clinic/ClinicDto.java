@@ -1,6 +1,5 @@
 package com.sda.clinic.models.company.clinic;
 
-import com.sda.clinic.models.company.Company;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,7 +14,7 @@ import java.util.stream.Collectors;
 public class ClinicDto {
 
     private UUID uuid; //UK
-    private Company company; //FK
+    //private Company company; //FK
 
     private String province;
     private String district;
