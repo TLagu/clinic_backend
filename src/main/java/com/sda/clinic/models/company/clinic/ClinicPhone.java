@@ -5,8 +5,6 @@ import com.sda.clinic.models.company.PhoneType;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.UUID;
-
 @Getter
 @Setter
 @NoArgsConstructor
@@ -23,6 +21,6 @@ public class ClinicPhone extends CompanyBase {
     @JoinColumn(name = "phone_type")
     private PhoneType phoneType; //FK
     private String phone;
-    @Column (name = "is_primary")
+    @Column(name = "is_primary")
     private boolean primary;
 }

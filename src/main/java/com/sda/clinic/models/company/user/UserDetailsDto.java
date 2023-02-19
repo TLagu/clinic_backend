@@ -21,7 +21,7 @@ public class UserDetailsDto {
     private LocalDate birthDay;
     private String nip;
 
-    public UserDetailsDto map (UserDetails entity) {
+    public UserDetailsDto map(UserDetails entity) {
         return UserDetailsDto.builder()
                 .user(UserDto.map(entity.getUser()))
                 .uuid(entity.getUuid())

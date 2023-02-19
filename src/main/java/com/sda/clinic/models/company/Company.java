@@ -12,7 +12,7 @@ import java.util.Set;
 @AllArgsConstructor
 
 @Entity
-@Table(name="company")
+@Table(name = "company")
 public class Company extends CompanyBase {
 
     @Column(name = "full_name")

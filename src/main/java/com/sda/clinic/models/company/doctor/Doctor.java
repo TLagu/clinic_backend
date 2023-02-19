@@ -12,7 +12,7 @@ import lombok.*;
 
 @Entity
 @Table(name = "doctors")
-public class Doctor extends CompanyBase{
+public class Doctor extends CompanyBase {
 
     @OneToOne
     @JoinColumn(name = "user_uuid")

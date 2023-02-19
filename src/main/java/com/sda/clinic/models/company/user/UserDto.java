@@ -1,7 +1,5 @@
 package com.sda.clinic.models.company.user;
 
-import com.sda.clinic.models.company.clinic.ClinicEmail;
-import com.sda.clinic.models.company.clinic.ClinicEmailDto;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;

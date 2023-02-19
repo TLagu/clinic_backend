@@ -2,7 +2,6 @@ package com.sda.clinic.security.services;
 
 import com.sda.clinic.models.company.user.User;
 import com.sda.clinic.repository.UserRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

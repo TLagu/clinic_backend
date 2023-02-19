@@ -9,7 +9,7 @@ import lombok.*;
 @AllArgsConstructor
 
 @Entity
-@Table(name="company_phones")
+@Table(name = "company_phones")
 public class CompanyPhone extends CompanyBase {
 
     @ManyToOne

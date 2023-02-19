@@ -2,7 +2,6 @@ package com.sda.clinic.models.company.clinic;
 
 import com.sda.clinic.models.company.CompanyBase;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
 import lombok.*;
 
 @Getter

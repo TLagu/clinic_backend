@@ -17,7 +17,7 @@ public class CompanyPhoneDto extends CompanyBase {
     private String phone;
     private boolean primary;
 
-    public static CompanyPhoneDto map (CompanyPhone entity) {
+    public static CompanyPhoneDto map(CompanyPhone entity) {
         return CompanyPhoneDto.builder()
                 .uuid(entity.getUuid())
                 .companyUuid(entity.getCompany().getUuid())

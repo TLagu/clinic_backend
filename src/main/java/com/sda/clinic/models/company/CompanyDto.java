@@ -39,7 +39,7 @@ public class CompanyDto {
     private Set<CompanyPhoneDto> phones;
     private Set<ClinicDto> clinics;
 
-    public static CompanyDto map (Company entity) {
+    public static CompanyDto map(Company entity) {
         return CompanyDto.builder()
                 .uuid(entity.getUuid())
                 .fullName(entity.getFullName())
