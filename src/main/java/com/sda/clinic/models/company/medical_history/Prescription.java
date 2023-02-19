@@ -17,16 +17,22 @@ import java.time.LocalDateTime;
 public class Prescription extends CompanyBase {
 
     private String code;
+    @Column(name = "access_code")
     private String accessCode;
+    @Column(name = "issue_date")
     private LocalDate issueDate;
     private String patient;
     private String doctor;
     private String pzw;
     private String phone;
+    @Column(name = "control_date")
     private LocalDateTime controlDate;
+    @Column(name = "prescriptions_number")
     private String number;
     private String drug;
+    @Column(name = "realization_date")
     private LocalDate realizationDate;
+    @Column(name = "packaging_type")
     private String packagingType;
     private String dosage;
 }

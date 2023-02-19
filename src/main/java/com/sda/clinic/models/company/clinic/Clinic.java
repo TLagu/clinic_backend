@@ -17,7 +17,7 @@ import java.util.Set;
 public class Clinic extends CompanyBase {
 
     @ManyToOne
-    @JoinColumn(name = "company", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "company", referencedColumnName = "uuid", nullable = false)
     private Company company; //FK
 
     private String province;

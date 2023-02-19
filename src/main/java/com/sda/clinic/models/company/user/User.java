@@ -1,5 +1,7 @@
 package com.sda.clinic.models.company.user;
 
+import com.sda.clinic.models.company.CompanyBase;
+import com.sda.clinic.models.company.clinic.Clinic;
 import com.sda.clinic.models.company.role.Role;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
@@ -17,11 +19,7 @@ import java.util.Set;
                 @UniqueConstraint(columnNames = "username"),
                 @UniqueConstraint(columnNames = "email")
         })
-public class User {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class User extends CompanyBase {
 
     @NotBlank
     @Size(max = 20)
@@ -38,9 +36,15 @@ public class User {
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "user_roles",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id"))
+            joinColumns = @JoinColumn(name = "user_uuid"),
+            inverseJoinColumns = @JoinColumn(name = "role_uuid"))
     private Set<Role> roles = new HashSet<>();
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "user_clinic",
+            joinColumns = @JoinColumn(name = "user_uuid"),
+            inverseJoinColumns = @JoinColumn(name = "clinic_uuid"))
+    private Set<Clinic> clinics = new HashSet<>();
 
     public User() {
     }

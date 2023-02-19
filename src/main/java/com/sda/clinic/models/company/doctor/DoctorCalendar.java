@@ -1,6 +1,8 @@
 package com.sda.clinic.models.company.doctor;
 
 import com.sda.clinic.models.company.CompanyBase;
+import com.sda.clinic.models.company.medical_history.Appointment;
+import com.sda.clinic.models.company.user.User;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -15,11 +17,14 @@ import java.time.LocalDateTime;
 @Table(name = "doctors_calendars")
 public class DoctorCalendar extends CompanyBase {
 
-    @Column(name = "user_id")
-    private long userId;
+    @OneToOne
+    @JoinColumn(name = "user_uuid")
+    private User user;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
-    private long appointmentId;
+    @OneToOne
+    @JoinColumn(name = "appointment")
+    private Appointment appointment;
 
 }
 

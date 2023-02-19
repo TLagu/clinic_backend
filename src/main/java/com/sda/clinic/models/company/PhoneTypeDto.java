@@ -13,7 +13,6 @@ public class PhoneTypeDto {
 
     public static PhoneTypeDto map(PhoneType entity) {
         return PhoneTypeDto.builder()
-                .id(entity.getId())
                 .type(entity.getType())
                 .build();
     }

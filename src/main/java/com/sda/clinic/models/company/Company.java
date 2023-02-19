@@ -1,5 +1,6 @@
 package com.sda.clinic.models.company;
 
+import com.sda.clinic.models.company.clinic.Clinic;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -44,6 +45,8 @@ public class Company extends CompanyBase {
     private Set<CompanyEmail> emails;
     @OneToMany(mappedBy = "company", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<CompanyPhone> phones;
+    @OneToMany(mappedBy = "company", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Clinic> clinics;
 }
 // One-to-Many CompanyEmail
 // One-to-Many CompanyPhone

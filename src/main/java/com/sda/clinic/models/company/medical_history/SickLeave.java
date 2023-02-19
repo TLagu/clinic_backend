@@ -16,6 +16,7 @@ import java.time.LocalDate;
 public class SickLeave extends CompanyBase {
 
     private String series;
+    @Column(name = "patent_number")
     private String number;
     private String pesel;
     private String patient;
@@ -42,7 +43,9 @@ public class SickLeave extends CompanyBase {
     private IncapacityCode code2;
     private IncapacityCode code3;
     private IncapacityCode code4;
-    private long diseaseType;
+    @OneToOne
+    @JoinColumn(name = "disease_type")
+    private DiseaseType diseaseType;
 
 }
 

@@ -15,7 +15,7 @@ public class ClinicDto {
 
     private UUID uuid; //UK
     //private Company company; //FK
-
+    private UUID companyUuid;
     private String province;
     private String district;
     private String community;
@@ -34,6 +34,7 @@ public class ClinicDto {
     public static ClinicDto map(Clinic entity) {
         return ClinicDto.builder()
                 .uuid(entity.getUuid())
+                .companyUuid(entity.getCompany().getUuid())
                 .province(entity.getProvince())
                 .district(entity.getDistrict())
                 .community(entity.getCommunity())

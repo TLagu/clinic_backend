@@ -17,7 +17,7 @@ import java.util.UUID;
 public class ClinicPhone extends CompanyBase {
 
     @ManyToOne
-    @JoinColumn(name = "clinic", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "clinic", referencedColumnName = "uuid", nullable = false)
     private Clinic clinic; //FK
     @OneToOne
     @JoinColumn(name = "phone_type")

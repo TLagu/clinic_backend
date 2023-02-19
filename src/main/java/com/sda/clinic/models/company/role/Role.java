@@ -1,5 +1,6 @@
 package com.sda.clinic.models.company.role;
 
+import com.sda.clinic.models.company.CompanyBase;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -10,14 +11,10 @@ import lombok.*;
 
 @Entity
 @Table(name = "roles")
-public class Role {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+public class Role extends CompanyBase {
 
     @Enumerated(EnumType.STRING)
-    @Column(length = 20)
+    @Column(name = "role_name", length = 20)
     private ERole name;
 
 }

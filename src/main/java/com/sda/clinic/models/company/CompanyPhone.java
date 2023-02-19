@@ -13,7 +13,7 @@ import lombok.*;
 public class CompanyPhone extends CompanyBase {
 
     @ManyToOne
-    @JoinColumn(name = "company", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "company", referencedColumnName = "uuid", nullable = false)
     private Company company; //
     @OneToOne
     @JoinColumn(name = "phone_type")// FK

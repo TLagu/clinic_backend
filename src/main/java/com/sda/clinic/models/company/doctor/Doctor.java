@@ -1,6 +1,7 @@
 package com.sda.clinic.models.company.doctor;
 
 import com.sda.clinic.models.company.CompanyBase;
+import com.sda.clinic.models.company.user.User;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -13,10 +14,11 @@ import lombok.*;
 @Table(name = "doctors")
 public class Doctor extends CompanyBase{
 
-    @Column(name = "user_id")
-    private long userId;
+    @OneToOne
+    @JoinColumn(name = "user_uuid")
+    private User user;
     private String pzw;
-
     @Enumerated(EnumType.STRING)
+    @Column(name = "academic_title")
     private AcademicTitle academicTitle;
 }
