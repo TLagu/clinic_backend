@@ -34,6 +34,10 @@ public class User extends CompanyBase {
     @Size(max = 120)
     private String password;
 
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER, optional = false)
+    private UserAppDetails userAppDetails;
+
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "user_roles",
             joinColumns = @JoinColumn(name = "user_uuid"),

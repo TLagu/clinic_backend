@@ -10,8 +10,7 @@ import java.util.UUID;
 @Getter
 @Setter
 @Builder
-public class UserDetailsDto {
-    private UserDto user;
+public class UserAppDetailsDto {
     private UUID uuid;
     private String firstName;
     private String secondName;
@@ -21,9 +20,8 @@ public class UserDetailsDto {
     private LocalDate birthDay;
     private String nip;
 
-    public UserDetailsDto map(UserDetails entity) {
-        return UserDetailsDto.builder()
-                .user(UserDto.map(entity.getUser()))
+    public static UserAppDetailsDto map(UserAppDetails entity) {
+        return UserAppDetailsDto.builder()
                 .uuid(entity.getUuid())
                 .firstName(entity.getFirstName())
                 .secondName(entity.getSecondName())

@@ -66,3 +66,12 @@ VALUES ('c41abfe7-93fb-4557-b802-4f6e5d0ace5c', 1, 1, '45e6da6d-c858-4ee9-a535-e
         '661f25a7-b2f3-4765-9cbd-b54eb15c1830', '+48 00 000 000 41', true),
        ('68f87caa-2188-44b8-a697-bed126cba8ac', 1, 1, '587c048e-060c-479c-94a1-8d65ae63b369',
         'd25734b0-3b40-41a5-9e94-4de4698c840a', '+48 00 000 000 42', false);
+INSERT INTO users_details (uuid, created_by, updated_by, user_uuid, first_name, second_name, last_name, pesel, id_number, birth_day, nip)
+VALUES ('d92bd5fa-7d13-4b6a-92c7-becedcef3956', 1, 1, '0f751493-b9b8-4a2f-91b1-6241fce07d2c', 'admin', 'adminek', 'adminowski', '00000000001',
+        'XXX 000001', '2000-01-01', '0000000001'),
+       ('0e71d289-28c5-493e-be7f-222281e0875b', 1, 1, '3d58a2ae-a2fa-44d6-bfa0-aa258bd18e76', 'doktor', 'doktorek', 'doktorowski', '00000000002',
+        'XXX 000002', '2000-01-02', '0000000002'),
+       ('f1b464a4-cf89-4b32-8ec0-a5158378b898', 1, 1, 'df1d6dfb-9ecf-4923-9557-a240c30f23ec', 'sekretarka', 'sekretareczka', 'sekretarowska', '00000000003',
+        'XXX 000003', '2000-01-03', '0000000003'),
+       ('9c255d7c-5df2-465b-a7e7-147be8f0337b', 1, 1, 'c94706ea-7e26-4b1f-a8f8-d5bb4f9b3806', 'pacjent', 'pacjentek', 'pacjentowski', '00000000004',
+        'XXX 000004', '2000-01-04', '0000000004');

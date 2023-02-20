@@ -1,9 +1,7 @@
 package com.sda.clinic.models.company.user;
 
 import com.sda.clinic.models.company.CompanyBase;
-import jakarta.persistence.Column;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
@@ -13,10 +11,12 @@ import java.time.LocalDate;
 
 @Getter
 @Setter
-public class UserDetails extends CompanyBase {
+@Entity
+@Table(name = "users_details")
+public class UserAppDetails extends CompanyBase {
 
-    @OneToOne
-    @JoinColumn(name = "user_id")
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_uuid")
     private User user;
     @NotNull
     @Size(max = 50)
