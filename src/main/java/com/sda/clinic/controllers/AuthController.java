@@ -1,6 +1,6 @@
 package com.sda.clinic.controllers;
 
-import com.sda.clinic.models.company.role.ERole;
+import com.sda.clinic.models.company.role.RoleType;
 import com.sda.clinic.models.company.role.Role;
 import com.sda.clinic.models.company.user.User;
 import com.sda.clinic.payload.request.LoginRequest;
@@ -89,29 +89,29 @@ public class AuthController {
         Set<Role> roles = new HashSet<>();
 
         if (strRoles == null) {
-            Role userRole = roleRepository.findByName(ERole.ROLE_PATIENT)
+            Role userRole = roleRepository.findByName(RoleType.ROLE_PATIENT)
                     .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
             roles.add(userRole);
         } else {
             strRoles.forEach(role -> {
                 switch (role) {
                     case "admin" -> {
-                        Role adminRole = roleRepository.findByName(ERole.ROLE_ADMIN)
+                        Role adminRole = roleRepository.findByName(RoleType.ROLE_ADMIN)
                                 .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
                         roles.add(adminRole);
                     }
                     case "doctor" -> {
-                        Role doctorRole = roleRepository.findByName(ERole.ROLE_DOCTOR)
+                        Role doctorRole = roleRepository.findByName(RoleType.ROLE_DOCTOR)
                                 .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
                         roles.add(doctorRole);
                     }
                     case "secretary" -> {
-                        Role secreteryRole = roleRepository.findByName(ERole.ROLE_SECRETARY)
+                        Role secreteryRole = roleRepository.findByName(RoleType.ROLE_SECRETARY)
                                 .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
                         roles.add(secreteryRole);
                     }
                     default -> {
-                        Role userRole = roleRepository.findByName(ERole.ROLE_PATIENT)
+                        Role userRole = roleRepository.findByName(RoleType.ROLE_PATIENT)
                                 .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
                         roles.add(userRole);
                     }

@@ -5,13 +5,12 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
-import java.util.UUID;
 
 @Getter
 @Setter
 @Builder
 public class UserAppDetailsDto {
-    private UUID uuid;
+    private String uuid;
     private String firstName;
     private String secondName;
     private String lastName;
@@ -22,7 +21,7 @@ public class UserAppDetailsDto {
 
     public static UserAppDetailsDto map(UserAppDetails entity) {
         return UserAppDetailsDto.builder()
-                .uuid(entity.getUuid())
+                .uuid(entity.getUuid().toString())
                 .firstName(entity.getFirstName())
                 .secondName(entity.getSecondName())
                 .lastName(entity.getLastName())

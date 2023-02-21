@@ -26,12 +26,12 @@ public class User extends CompanyBase {
     private String username;
 
     @NotBlank
-    @Size(max = 50)
+    @Size(min = 5, max = 50)
     @Email
     private String email;
 
     @NotBlank
-    @Size(max = 120)
+    @Size(min = 6, max = 120)
     private String password;
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL,
@@ -44,11 +44,9 @@ public class User extends CompanyBase {
             inverseJoinColumns = @JoinColumn(name = "role_uuid"))
     private Set<Role> roles = new HashSet<>();
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "user_clinic",
-            joinColumns = @JoinColumn(name = "user_uuid"),
-            inverseJoinColumns = @JoinColumn(name = "clinic_uuid"))
-    private Set<Clinic> clinics = new HashSet<>();
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "clinic_uuid")
+    private Clinic clinic;
 
     public User() {
     }

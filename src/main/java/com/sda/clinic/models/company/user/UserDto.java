@@ -6,25 +6,27 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Set;
-import java.util.UUID;
 
 @Getter
 @Setter
 @Builder
 public class UserDto {
-    private UUID uuid;
-    private UserAppDetailsDto user;
+    private String uuid;
     private String username;
+    private String password;
     private String email;
     private Set<Role> roles;
+    private UserAppDetailsDto userAppDetails;
+    private String clinic;
 
     public static UserDto map(User entity) {
         return UserDto.builder()
-                .uuid(entity.getUuid())
-                .user(UserAppDetailsDto.map(entity.getUserAppDetails()))
+                .uuid(entity.getUuid().toString())
                 .username(entity.getUsername())
                 .email(entity.getEmail())
                 .roles(entity.getRoles())
+                .userAppDetails(UserAppDetailsDto.map(entity.getUserAppDetails()))
+                .clinic((entity.getClinic() == null) ? null : entity.getClinic().getUuid().toString())
                 .build();
     }
 

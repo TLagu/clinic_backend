@@ -15,6 +15,6 @@ public class Role extends CompanyBase {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "role_name", length = 20)
-    private ERole name;
+    private RoleType name;
 
 }

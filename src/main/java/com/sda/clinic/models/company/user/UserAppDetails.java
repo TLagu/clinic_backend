@@ -4,8 +4,7 @@ import com.sda.clinic.models.company.CompanyBase;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDate;
 
@@ -19,23 +18,24 @@ public class UserAppDetails extends CompanyBase {
     @JoinColumn(name = "user_uuid")
     private User user;
     @NotNull
-    @Size(max = 50)
+    @Size(min = 3, max = 50)
     @Column(name = "first_name")
     private String firstName;
     @Size(max = 50)
     @Column(name = "second_name")
     private String secondName;
     @NotNull
-    @Size(max = 50)
+    @Size(min = 3, max = 50)
     @Column(name = "last_name")
     private String lastName;
-    @Size(max = 11)
+    @Size(min = 11, max = 11)
     private String pesel;
     @Size(max = 20)
     @Column(name = "id_number")
     private String idNumber;
     @Column(name = "birth_day")
     private LocalDate birthDay;
-    @Size(max = 13)
+    @Size(max = 10)
     private String nip;
+
 }

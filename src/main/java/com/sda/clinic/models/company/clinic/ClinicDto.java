@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Set;
-import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Getter
@@ -13,9 +12,8 @@ import java.util.stream.Collectors;
 @Builder
 public class ClinicDto {
 
-    private UUID uuid; //UK
-    //private Company company; //FK
-    private UUID companyUuid;
+    private String uuid;
+    private String company;
     private String province;
     private String district;
     private String community;
@@ -33,8 +31,8 @@ public class ClinicDto {
 
     public static ClinicDto map(Clinic entity) {
         return ClinicDto.builder()
-                .uuid(entity.getUuid())
-                .companyUuid(entity.getCompany().getUuid())
+                .uuid(entity.getUuid().toString())
+                .company(entity.getCompany().getUuid().toString())
                 .province(entity.getProvince())
                 .district(entity.getDistrict())
                 .community(entity.getCommunity())

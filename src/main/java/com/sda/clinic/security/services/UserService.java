@@ -1,7 +1,9 @@
 package com.sda.clinic.security.services;
 
+import com.sda.clinic.models.company.clinic.Clinic;
 import com.sda.clinic.models.company.user.User;
 import com.sda.clinic.models.company.user.UserDto;
+import com.sda.clinic.repository.ClinicRepository;
 import com.sda.clinic.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -15,6 +17,7 @@ import java.util.UUID;
 public class UserService {
 
     private final UserRepository userRepository;
+    private final ClinicRepository clinicRepository;
 
     @Transactional
     public UserDto loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -27,4 +30,25 @@ public class UserService {
         return UserDto.map(user);
     }
 
+    public void modify(UserDto request) {
+        final User user = userRepository
+                .findByUuid(UUID.fromString(request.getUuid()))
+                .orElseThrow(() -> new IllegalArgumentException("Nie znaleziono użytkownika!!!"));
+        final Clinic clinic = clinicRepository
+                .findByUuid(UUID.fromString(request.getClinic()))
+                .orElseThrow(() -> new IllegalArgumentException("Nie znaleziono użytkownika!!!"));
+        if (request.getPassword() != null) {
+            user.setPassword(request.getPassword());
+        }
+        user.setEmail(request.getEmail());
+        user.getUserAppDetails().setFirstName(request.getUserAppDetails().getFirstName());
+        user.getUserAppDetails().setSecondName(request.getUserAppDetails().getSecondName());
+        user.getUserAppDetails().setLastName(request.getUserAppDetails().getLastName());
+        user.getUserAppDetails().setPesel(request.getUserAppDetails().getPesel());
+        user.getUserAppDetails().setIdNumber(request.getUserAppDetails().getIdNumber());
+        user.getUserAppDetails().setBirthDay(request.getUserAppDetails().getBirthDay());
+        user.getUserAppDetails().setNip(request.getUserAppDetails().getNip());
+        user.setClinic(clinic);
+        userRepository.saveAndFlush(user);
+    }
 }

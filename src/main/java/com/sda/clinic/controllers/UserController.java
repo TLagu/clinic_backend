@@ -5,13 +5,12 @@ import com.sda.clinic.models.company.user.UserDto;
 import com.sda.clinic.security.services.UserDetailsImpl;
 import com.sda.clinic.security.services.UserService;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -34,9 +33,17 @@ public class UserController {
         return ResponseEntity.ok(new GetUserResponse(userDetails.getUsername(), userDetails.getEmail(), roles));
     }
 
-    @GetMapping("/getUserDetail")
+    @GetMapping("/doctor_user")
+//    @PreAuthorize("hasRole('ROLE_DOCTOR')")
     public ResponseEntity<UserDto> getCurrentUserDetails(@RequestParam String username) {
         return ResponseEntity.ok(userService.loadUserByUsername(username));
+    }
+
+    @PostMapping("/doctor_user")
+    @PreAuthorize("hasRole('ROLE_DOCTOR')")
+    public ResponseEntity<?> modify(@RequestBody UserDto request) {
+        userService.modify(request);
+        return new ResponseEntity<>(null, HttpStatus.OK);
     }
 
 }
