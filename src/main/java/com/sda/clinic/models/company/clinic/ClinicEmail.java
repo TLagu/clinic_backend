@@ -15,7 +15,7 @@ public class ClinicEmail extends CompanyBase {
 
     @ManyToOne
     @JoinColumn(name = "clinic", referencedColumnName = "uuid", nullable = false)
-    private Clinic clinic; //FK
+    private Clinic clinic;
     private String email;
     @Column(name = "is_primary")
     private boolean primary;

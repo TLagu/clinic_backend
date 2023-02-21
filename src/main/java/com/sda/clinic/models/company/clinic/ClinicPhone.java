@@ -16,10 +16,10 @@ public class ClinicPhone extends CompanyBase {
 
     @ManyToOne
     @JoinColumn(name = "clinic", referencedColumnName = "uuid", nullable = false)
-    private Clinic clinic; //FK
+    private Clinic clinic;
     @OneToOne
     @JoinColumn(name = "phone_type")
-    private PhoneType phoneType; //FK
+    private PhoneType phoneType;
     private String phone;
     @Column(name = "is_primary")
     private boolean primary;

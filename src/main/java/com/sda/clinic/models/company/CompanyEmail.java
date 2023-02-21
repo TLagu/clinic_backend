@@ -14,7 +14,7 @@ public class CompanyEmail extends CompanyBase {
 
     @ManyToOne
     @JoinColumn(name = "company", referencedColumnName = "uuid", nullable = false)
-    private Company company; //FK
+    private Company company;
     private String email;
     @Column(name = "is_primary")
     private boolean primary;

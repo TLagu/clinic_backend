@@ -48,7 +48,4 @@ public class Company extends CompanyBase {
     @OneToMany(mappedBy = "company", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Clinic> clinics;
 }
-// One-to-Many CompanyEmail
-// One-to-Many CompanyPhone
 
-// One-to-Many clinic.Clinic

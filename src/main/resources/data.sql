@@ -28,51 +28,60 @@ VALUES ('0f751493-b9b8-4a2f-91b1-6241fce07d2c', 'd0bcb328-c89d-4cf5-add9-61bab97
        ('df1d6dfb-9ecf-4923-9557-a240c30f23ec', 'a643c1f1-5438-465d-9388-be8ed0614a21'),
        ('c94706ea-7e26-4b1f-a8f8-d5bb4f9b3806', 'b674bab6-e683-4c41-b403-4a25c7a482af');
 INSERT INTO company (uuid, created_by, updated_by, full_name, short_name, nip, regon, krs, account_number, province,
-                     district, community, locality, street, street_no, flat_no, post_code, post, longitude, latitude)
+        district, community, locality, street, street_no, flat_no, post_code, post, longitude, latitude)
 VALUES ('70d38aec-7631-46bc-af92-438865a1b793', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
-        'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'full_name', 'short_name', 'nip', 'regon', 'krs',
-        'account_number', 'province', 'district', 'community', 'locality', 'street', 'street_no', 'flat_no',
-        '00-000', 'post', 1, 1);
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'Ekskluzywne Centra Zdrowotne', 'Exclusive Clinics', '001-252-01-33',
+        '001555404', '2055244211','55102065754455664412135432', 'Mazowieckie', 'Warszawa', 'Warszawa', 'Warszawa',
+        'Zdrowa', '007', '1','01-007', 'Warszawa', 52, 21);
 INSERT INTO clinics (uuid, created_by, updated_by, company, province, district, community, locality, street, street_no,
-                     flat_no, post_code, post, clinic_name, description, longitude, latitude)
+        flat_no, post_code, post, clinic_name, description, longitude, latitude)
 VALUES ('45e6da6d-c858-4ee9-a535-e5b4f50b6e54', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
-        'd0bcb328-c89d-4cf5-add9-61bab97124f8', '70d38aec-7631-46bc-af92-438865a1b793', 'province1', 'district1',
-        'community1', 'locality1', 'street1',
-        'streetNo1', 'flatNo1', '00-001', 'post1', 'name1', 'description1', 1, 1),
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', '70d38aec-7631-46bc-af92-438865a1b793', 'Lubelskie', 'Zamość','Zamość',
+        'Zamość', 'Piękna','12', '/14', '22-400', 'Zamość', 'Zamojskie Centrum Zdrowia','General practice, Emergency,
+        Clinical Psychiatry & Psychology', 50, 23),
        ('f45ef247-e76c-45b5-85ae-163ca4e65316', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
-        'd0bcb328-c89d-4cf5-add9-61bab97124f8', '70d38aec-7631-46bc-af92-438865a1b793', 'province2', 'district2',
-        'community2', 'locality2', 'street2',
-        'streetNo2', 'flatNo2', '00-002', 'post2', 'name2', 'description2', 1, 1),
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', '70d38aec-7631-46bc-af92-438865a1b793', 'Dolnośląskie', 'Wrocław',
+        'Wrocław', 'Wrocław', 'Przyjazna','2', 'lok.1-20', '50-500', 'Wrocław', 'Wrocławskie Centrum Zdrowia',
+        'General practice, Emergency, Preventive Medicine, Allergy & Immunology', 51, 17),
        ('c9c138b1-d73b-4528-a628-dcc52d43435d', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
-        'd0bcb328-c89d-4cf5-add9-61bab97124f8', '70d38aec-7631-46bc-af92-438865a1b793', 'province3', 'district3',
-        'community3', 'locality3', 'street3',
-        'streetNo3', 'flatNo3', '00-003', 'post3', 'name3', 'description3', 1, 1),
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', '70d38aec-7631-46bc-af92-438865a1b793', 'Pomorskie', 'Gdynia', 'Gdynia',
+        'Gdynia', 'Lecznicza','8', 'A-D', '81-200', 'Gdynia', 'Gdyńskie Centrum Zdrowotne', 'General practice, Emergency,
+        Genetics, Nuclear Medicine, Diagnostic Radiology', 54, 18),
        ('587c048e-060c-479c-94a1-8d65ae63b369', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
-        'd0bcb328-c89d-4cf5-add9-61bab97124f8', '70d38aec-7631-46bc-af92-438865a1b793', 'province4', 'district4',
-        'community4', 'locality4', 'street4',
-        'streetNo4', 'flatNo4', '00-004', 'post4', 'name4', 'description4', 1, 1);
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', '70d38aec-7631-46bc-af92-438865a1b793', 'Łódzkie',
+        'Tomaszów Mazowiecki','Tomaszów Mazowiecki', 'Tomaszów Mazowiecki', 'Uzdrowiskowa','4', '', '97-205',
+        'Tomaszów Mazowiecki', 'Tomaszowskie Centrum Zdrowotne', 'General practice, Neurology, Obstetrics and Gynecology,
+        Urology, Anesthesiology, Surgery ', 51, 20);
 INSERT INTO clinics_emails (uuid, created_by, updated_by, clinic, email, is_primary)
 VALUES ('effcbd5c-16b0-44b9-b280-c15993ed987c', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
-        'd0bcb328-c89d-4cf5-add9-61bab97124f8', '45e6da6d-c858-4ee9-a535-e5b4f50b6e54', 'email11@em.pl', true),
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', '45e6da6d-c858-4ee9-a535-e5b4f50b6e54',
+        'zamojski.hc@exclusive.pl', true),
        ('832e8252-32a2-415c-9f1a-c1bde159b87a', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
-        'd0bcb328-c89d-4cf5-add9-61bab97124f8', '45e6da6d-c858-4ee9-a535-e5b4f50b6e54', 'email12@em.pl', false),
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', '45e6da6d-c858-4ee9-a535-e5b4f50b6e54',
+        'zamojski.hc.internal@exclusive.pl', false),
        ('3688f702-92f7-4680-9617-424bf50fbc85', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
-        'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'f45ef247-e76c-45b5-85ae-163ca4e65316', 'email21@em.pl', true),
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'f45ef247-e76c-45b5-85ae-163ca4e65316',
+        'wroclaw.hc@exclusive.pl', true),
        ('a13f2064-1d45-43fb-a34a-f5530300e435', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
-        'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'f45ef247-e76c-45b5-85ae-163ca4e65316', 'email22@em.pl', false),
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'f45ef247-e76c-45b5-85ae-163ca4e65316',
+        'wroclaw.hc.internal@exclusive.pl', false),
        ('a21c663e-f329-4375-98b2-df57251e4cb4', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
-        'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'c9c138b1-d73b-4528-a628-dcc52d43435d', 'email31@em.pl', true),
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'c9c138b1-d73b-4528-a628-dcc52d43435d',
+        'gdynia.hc@exclusive.pl', true),
        ('860911fa-c753-412a-ae89-c86b7fbd9829', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
-        'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'c9c138b1-d73b-4528-a628-dcc52d43435d', 'email32@em.pl', false),
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'c9c138b1-d73b-4528-a628-dcc52d43435d',
+        'gdynia.hc.internal@exclusive.pl', false),
        ('b41e9b42-ab3d-40f1-9d44-92e33499cc07', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
-        'd0bcb328-c89d-4cf5-add9-61bab97124f8', '587c048e-060c-479c-94a1-8d65ae63b369', 'email41@em.pl', true),
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', '587c048e-060c-479c-94a1-8d65ae63b369',
+        'tomaszow.maz.hc@exclusive.pl', true),
        ('20941fb8-cd1c-457f-854f-ceca9c866152', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
-        'd0bcb328-c89d-4cf5-add9-61bab97124f8', '587c048e-060c-479c-94a1-8d65ae63b369', 'email42@em.pl', false);
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', '587c048e-060c-479c-94a1-8d65ae63b369',
+        'tomaszow.maz.hc.internal@exclusive.pl', false);
 INSERT INTO phone_types (uuid, created_by, updated_by, phone_type)
 VALUES ('661f25a7-b2f3-4765-9cbd-b54eb15c1830', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
-        'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'Komórka'),
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'Cellphone'),
        ('d25734b0-3b40-41a5-9e94-4de4698c840a', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
-        'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'Stacjonarny');
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'Landline');
 INSERT INTO clinics_phones (uuid, created_by, updated_by, clinic, phone_type, phone, is_primary)
 VALUES ('c41abfe7-93fb-4557-b802-4f6e5d0ace5c', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
         'd0bcb328-c89d-4cf5-add9-61bab97124f8', '45e6da6d-c858-4ee9-a535-e5b4f50b6e54',
@@ -99,20 +108,16 @@ VALUES ('c41abfe7-93fb-4557-b802-4f6e5d0ace5c', 'd0bcb328-c89d-4cf5-add9-61bab97
         'd0bcb328-c89d-4cf5-add9-61bab97124f8', '587c048e-060c-479c-94a1-8d65ae63b369',
         'd25734b0-3b40-41a5-9e94-4de4698c840a', '+48 00 000 000 42', false);
 INSERT INTO users_details (uuid, created_by, updated_by, user_uuid, first_name, second_name, last_name, pesel,
-                           id_number, birth_day, nip)
+        id_number, birth_day, nip)
 VALUES ('d92bd5fa-7d13-4b6a-92c7-becedcef3956', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
-        'd0bcb328-c89d-4cf5-add9-61bab97124f8', '0f751493-b9b8-4a2f-91b1-6241fce07d2c', 'admin', 'adminek',
-        'adminowski', '00000000001',
-        'XXX 000001', '2000-01-01', '0000000001'),
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', '0f751493-b9b8-4a2f-91b1-6241fce07d2c', 'Jan', 'Jerzy', 'Admin',
+        '00000000001', 'XXX 000001', '1969-01-01', '7710000001'),
        ('0e71d289-28c5-493e-be7f-222281e0875b', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
-        'd0bcb328-c89d-4cf5-add9-61bab97124f8', '3d58a2ae-a2fa-44d6-bfa0-aa258bd18e76', 'doktor', 'doktorek',
-        'doktorowski', '00000000002',
-        'XXX 000002', '2000-01-02', '0000000002'),
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', '3d58a2ae-a2fa-44d6-bfa0-aa258bd18e76', 'Krzysztof', 'Marian',
+        'Doktor','00000000002', 'XXX 000002', '1972-05-02', '7710000002'),
        ('f1b464a4-cf89-4b32-8ec0-a5158378b898', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
-        'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'df1d6dfb-9ecf-4923-9557-a240c30f23ec', 'sekretarka', 'sekretareczka',
-        'sekretarowska', '00000000003',
-        'XXX 000003', '2000-01-03', '0000000003'),
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'df1d6dfb-9ecf-4923-9557-a240c30f23ec', 'Janina', 'Marta',
+        'Sekretarka', '00000000003', 'XXX 000003', '1982-08-03', '7710000003'),
        ('9c255d7c-5df2-465b-a7e7-147be8f0337b', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
-        'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'c94706ea-7e26-4b1f-a8f8-d5bb4f9b3806', 'pacjent', 'pacjentek',
-        'pacjentowski', '00000000004',
-        'XXX 000004', '2000-01-04', '0000000004');
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'c94706ea-7e26-4b1f-a8f8-d5bb4f9b3806', 'Bożydar', 'Honoriusz',
+        'Pacjent', '00000000004', 'XXX 000004', '1979-11-04', '7710000004');

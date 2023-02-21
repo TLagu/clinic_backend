@@ -19,7 +19,7 @@ public class Clinic extends CompanyBase {
 
     @ManyToOne
     @JoinColumn(name = "company", referencedColumnName = "uuid", nullable = false)
-    private Company company; //FK
+    private Company company;
 
     private String province;
     private String district;
@@ -51,6 +51,3 @@ public class Clinic extends CompanyBase {
     private Set<ClinicPhone> phones;
 
 }
-
-// One-to-Many ClinicEmail
-// One-to-Many ClinicPhone
