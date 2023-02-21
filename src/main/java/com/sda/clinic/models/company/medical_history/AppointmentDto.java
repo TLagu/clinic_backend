@@ -2,9 +2,7 @@ package com.sda.clinic.models.company.medical_history;
 
 import com.sda.clinic.models.company.clinic.ClinicDto;
 import com.sda.clinic.models.company.user.UserDto;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.UUID;
 
@@ -40,8 +38,3 @@ public class AppointmentDto {
     }
 
 }
-
-// "e" or not to "e"
-// One-to-one SickLeave
-// One-to-one Prescription
-// One-to-one Referral

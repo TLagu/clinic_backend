@@ -1,8 +1,6 @@
 package com.sda.clinic.models.company.medical_history;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.util.UUID;
@@ -63,5 +61,3 @@ public class SickLeaveDto {
     }
 
 }
-
-// one-to-one diseaseType

@@ -15,6 +15,3 @@ public class PhoneType extends CompanyBase {
     @Column(name = "phone_type")
     private String type;
 }
-
-//One-to-many CompanyPhone
-//One-to-many clinic.ClinicPhone

@@ -38,8 +38,3 @@ public class Appointment extends CompanyBase {
     @JoinColumn(name = "referral")
     private Referral referral;
 }
-
-// "e" or not to "e"
-// One-to-one SickLeave
-// One-to-one Prescription
-// One-to-one Referral

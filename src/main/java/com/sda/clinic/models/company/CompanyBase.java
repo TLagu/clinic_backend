@@ -13,7 +13,7 @@ public abstract class CompanyBase {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID uuid; //UK
+    private UUID uuid;
     private @Setter UUID createdBy;
     private @Setter LocalDateTime createdOn;
     private @Setter UUID updatedBy;

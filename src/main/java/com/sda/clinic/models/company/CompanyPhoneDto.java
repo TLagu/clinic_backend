@@ -1,8 +1,6 @@
 package com.sda.clinic.models.company;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.UUID;
 
@@ -26,5 +24,4 @@ public class CompanyPhoneDto extends CompanyBase {
                 .primary(entity.isPrimary())
                 .build();
     }
-
 }

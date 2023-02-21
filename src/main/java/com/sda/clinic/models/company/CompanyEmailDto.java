@@ -1,8 +1,6 @@
 package com.sda.clinic.models.company;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.UUID;
 
@@ -11,7 +9,7 @@ import java.util.UUID;
 @Builder
 public class CompanyEmailDto extends CompanyBase {
     private UUID uuid;
-    private UUID companyUuid; //FK
+    private UUID companyUuid;
     private String email;
     private boolean primary;
 

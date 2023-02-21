@@ -48,5 +48,3 @@ public class SickLeave extends CompanyBase {
     private DiseaseType diseaseType;
 
 }
-
-// one-to-one diseaseType

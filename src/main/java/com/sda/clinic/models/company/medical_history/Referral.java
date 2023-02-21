@@ -37,6 +37,6 @@ public class Referral extends CompanyBase {
     @JoinColumn(name = "disease_type")
     private DiseaseType diseaseType;
     private String purpose;
-    @Column(name = "examination_performed")
+    @Column(name = "examinations_performed")
     private String examinationsPerformed;
 }

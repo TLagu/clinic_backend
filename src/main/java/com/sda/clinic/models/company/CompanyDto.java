@@ -1,12 +1,9 @@
 package com.sda.clinic.models.company;
 
 import com.sda.clinic.models.company.clinic.ClinicDto;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Getter
@@ -65,7 +62,3 @@ public class CompanyDto {
                 .build();
     }
 }
-// One-to-Many CompanyEmail
-// One-to-Many CompanyPhone
-
-// One-to-Many clinic.Clinic
