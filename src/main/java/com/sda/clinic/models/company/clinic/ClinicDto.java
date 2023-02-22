@@ -1,5 +1,6 @@
 package com.sda.clinic.models.company.clinic;
 
+import com.sda.clinic.models.company.DictionaryItemDto;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -51,6 +52,11 @@ public class ClinicDto {
                         .map(ClinicPhoneDto::map)
                         .collect(Collectors.toSet()))
                 .build();
+    }
+
+    public static DictionaryItemDto dictionary(Clinic entity) {
+        String itemName = entity.getClinicName() + " (" + entity.getLocality() + ")";
+        return new DictionaryItemDto(entity.getUuid().toString(), itemName, entity.getStatus().toString());
     }
 
 }

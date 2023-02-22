@@ -7,6 +7,7 @@ import com.sda.clinic.repository.ClinicRepository;
 import com.sda.clinic.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -30,15 +31,15 @@ public class UserService {
         return UserDto.map(user);
     }
 
-    public void modify(UserDto request) {
+    public void modify(UserDto request, PasswordEncoder encoder) {
         final User user = userRepository
                 .findByUuid(UUID.fromString(request.getUuid()))
                 .orElseThrow(() -> new IllegalArgumentException("Nie znaleziono użytkownika!!!"));
         final Clinic clinic = clinicRepository
                 .findByUuid(UUID.fromString(request.getClinic()))
                 .orElseThrow(() -> new IllegalArgumentException("Nie znaleziono użytkownika!!!"));
-        if (request.getPassword() != null) {
-            user.setPassword(request.getPassword());
+        if (request.getPassword() != null && !request.getPassword().isEmpty()) {
+            user.setPassword(encoder.encode(request.getPassword()));
         }
         user.setEmail(request.getEmail());
         user.getUserAppDetails().setFirstName(request.getUserAppDetails().getFirstName());

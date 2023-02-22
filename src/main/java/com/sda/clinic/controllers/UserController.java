@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,6 +23,8 @@ public class UserController {
 
     private final UserService userService;
 
+    private final PasswordEncoder encoder;
+
     @GetMapping("/getUser")
     public ResponseEntity<GetUserResponse> getCurrentUser(Authentication authentication) {
         UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
@@ -33,16 +36,14 @@ public class UserController {
         return ResponseEntity.ok(new GetUserResponse(userDetails.getUsername(), userDetails.getEmail(), roles));
     }
 
-    @GetMapping("/doctor_user")
-//    @PreAuthorize("hasRole('ROLE_DOCTOR')")
+    @GetMapping("/user")
     public ResponseEntity<UserDto> getCurrentUserDetails(@RequestParam String username) {
         return ResponseEntity.ok(userService.loadUserByUsername(username));
     }
 
-    @PostMapping("/doctor_user")
-    @PreAuthorize("hasRole('ROLE_DOCTOR')")
+    @PutMapping("/user")
     public ResponseEntity<?> modify(@RequestBody UserDto request) {
-        userService.modify(request);
+        userService.modify(request, encoder);
         return new ResponseEntity<>(null, HttpStatus.OK);
     }
 

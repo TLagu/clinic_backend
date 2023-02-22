@@ -1,5 +1,6 @@
 package com.sda.clinic.controllers;
 
+import com.sda.clinic.models.company.DictionaryItemsDto;
 import com.sda.clinic.models.company.clinic.ClinicDto;
 import com.sda.clinic.security.services.ClinicService;
 import lombok.RequiredArgsConstructor;
@@ -19,5 +20,10 @@ public class CompanyController {
     @GetMapping("/getAllClinics")
     public ResponseEntity<Page<ClinicDto>> getAllClinics(@RequestParam Integer page) {
         return ResponseEntity.ok(clinicService.getAll(page));
+    }
+
+    @GetMapping("/getDictionaryClinic")
+    public ResponseEntity<DictionaryItemsDto> getDictionaryClinic() {
+        return ResponseEntity.ok(clinicService.getAsDictionary());
     }
 }

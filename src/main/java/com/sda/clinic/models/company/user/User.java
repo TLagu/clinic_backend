@@ -31,7 +31,6 @@ public class User extends CompanyBase {
     private String email;
 
     @NotBlank
-    @Size(min = 6, max = 120)
     private String password;
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL,
