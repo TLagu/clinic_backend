@@ -33,6 +33,16 @@ VALUES ('70d38aec-7631-46bc-af92-438865a1b793', 'd0bcb328-c89d-4cf5-add9-61bab97
         'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'Ekskluzywne Centra Zdrowotne', 'Exclusive Clinics', '001-252-01-33',
         '001555404', '2055244211', '55102065754455664412135432', 'Mazowieckie', 'Warszawa', 'Warszawa', 'Warszawa',
         'Zdrowa', '007', '1', '01-007', 'Warszawa', 52, 21);
+INSERT INTO company_emails (uuid, created_by, updated_by, company, email, is_primary)
+VALUES ('ef4befb8-b2ed-11ed-afa1-0242ac120002','d0bcb328-c89d-4cf5-add9-61bab97124f8',
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', '70d38aec-7631-46bc-af92-438865a1b793',
+        'bok.ecz@exclusive.pl', true),
+       ('b4c87868-b2f0-11ed-afa1-0242ac120002','d0bcb328-c89d-4cf5-add9-61bab97124f8',
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', '70d38aec-7631-46bc-af92-438865a1b793',
+        'kontakt.ecz@exclusive.pl', true),
+       ('f3fd3abe-b2f0-11ed-afa1-0242ac120002','d0bcb328-c89d-4cf5-add9-61bab97124f8',
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', '70d38aec-7631-46bc-af92-438865a1b793',
+        'biuro.ecz@exclusive.pl', true);
 INSERT INTO clinics (uuid, created_by, updated_by, company, province, district, community, locality, street, street_no,
                      flat_no, post_code, post, clinic_name, description, longitude, latitude)
 VALUES ('45e6da6d-c858-4ee9-a535-e5b4f50b6e54', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
@@ -121,7 +131,7 @@ VALUES ('d92bd5fa-7d13-4b6a-92c7-becedcef3956', 'd0bcb328-c89d-4cf5-add9-61bab97
        ('9c255d7c-5df2-465b-a7e7-147be8f0337b', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
         'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'c94706ea-7e26-4b1f-a8f8-d5bb4f9b3806', 'Bożydar', 'Honoriusz',
         'Pacjent', '00000000004', 'XXX 000004', '1979-11-04', '7710000004');
-INSERT INTO doctors_calendars (uuid, created_by, updated_by, userUuid, startTime, endTime, appointment)
+INSERT INTO doctors_calendars (uuid, created_by, updated_by, user_uuid, start_time, end_time, appointment)
 VALUES ('58ac5829-4d47-4a4e-972a-16a954d2f0b1', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
         'd0bcb328-c89d-4cf5-add9-61bab97124f8', '3d58a2ae-a2fa-44d6-bfa0-aa258bd18e76',
         DATEADD('DAY', 0, DATEADD('HOUR', 12, DATEADD('MINUTE', 0, CURRENT_DATE))),
@@ -229,7 +239,7 @@ VALUES ('58ac5829-4d47-4a4e-972a-16a954d2f0b1', 'd0bcb328-c89d-4cf5-add9-61bab97
         'd0bcb328-c89d-4cf5-add9-61bab97124f8', '3d58a2ae-a2fa-44d6-bfa0-aa258bd18e76',
         DATEADD('DAY', 3, DATEADD('HOUR', 13, DATEADD('MINUTE', 0, CURRENT_DATE))),
         DATEADD('DAY', 3, DATEADD('HOUR', 13, DATEADD('MINUTE', 30, CURRENT_DATE))), null);
-INSERT INTO appointment (uuid, created_by, updated_by, patient, doctor, clinic, description, recommendations, sickLeave,
+INSERT INTO appointments (uuid, created_by, updated_by, patient, doctor, clinic, description, recommendations, sick_leave,
                          prescription, referral)
 VALUES ('c50fc149-83de-401d-ba45-15497de8bb20', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
         'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'c94706ea-7e26-4b1f-a8f8-d5bb4f9b3806',
