@@ -10,7 +10,7 @@ import lombok.*;
 @AllArgsConstructor
 
 @Entity
-@Table(name = "diseases_types")
+@Table(name = "disease_types")
 public class DiseaseType extends CompanyBase {
 
     private String code;

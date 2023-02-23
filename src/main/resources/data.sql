@@ -43,10 +43,27 @@ VALUES ('ef4befb8-b2ed-11ed-afa1-0242ac120002', 'd0bcb328-c89d-4cf5-add9-61bab97
        ('f3fd3abe-b2f0-11ed-afa1-0242ac120002', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
         'd0bcb328-c89d-4cf5-add9-61bab97124f8', '70d38aec-7631-46bc-af92-438865a1b793',
         'biuro.ecz@exclusive.pl', true);
--- INSERT INTO company_phones (uuid, created_by, updated_by, company, phone_type, phone, is_primary)
--- VALUES ('48e7b0c8-b354-11ed-afa1-0242ac120002', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
---         'd0bcb328-c89d-4cf5-add9-61bab97124f8', '70d38aec-7631-46bc-af92-438865a1b793',
---         '0a97c062-b357-11ed-afa1-0242ac120002', '+48 22 022 00 01', true);
+INSERT INTO phone_types (uuid, created_by, updated_by, phone_type)
+VALUES ('661f25a7-b2f3-4765-9cbd-b54eb15c1830', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'Komórkowy'),
+       ('d25734b0-3b40-41a5-9e94-4de4698c840a', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'Stacjonarny'),
+       ('c594263e-b385-11ed-afa1-0242ac120002', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'Centrala, Recepcja'),
+       ('d610e150-b385-11ed-afa1-0242ac120002', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'Centrala, Biuro Obsługi Klienta'),
+       ('eb189e30-b385-11ed-afa1-0242ac120002', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'Centrala, Biuro Reklamy');
+INSERT INTO company_phones (uuid, created_by, updated_by, company, phone_type, phone, is_primary)
+VALUES ('f19b05ae-b385-11ed-afa1-0242ac120002', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', '70d38aec-7631-46bc-af92-438865a1b793',
+        'c594263e-b385-11ed-afa1-0242ac120002', '+48 22 022 00 01', true),
+       ('48e7b0c8-b354-11ed-afa1-0242ac120002', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', '70d38aec-7631-46bc-af92-438865a1b793',
+        'd610e150-b385-11ed-afa1-0242ac120002', '+48 22 022 00 01', true),
+       ('1cda37da-b386-11ed-afa1-0242ac120002', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', '70d38aec-7631-46bc-af92-438865a1b793',
+        'eb189e30-b385-11ed-afa1-0242ac120002', '+48 22 022 00 01', true);
 INSERT INTO clinics (uuid, created_by, updated_by, company, province, district, community, locality, street, street_no,
                      flat_no, post_code, post, clinic_name, description, longitude, latitude)
 VALUES ('45e6da6d-c858-4ee9-a535-e5b4f50b6e54', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
@@ -91,13 +108,6 @@ VALUES ('effcbd5c-16b0-44b9-b280-c15993ed987c', 'd0bcb328-c89d-4cf5-add9-61bab97
        ('20941fb8-cd1c-457f-854f-ceca9c866152', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
         'd0bcb328-c89d-4cf5-add9-61bab97124f8', '587c048e-060c-479c-94a1-8d65ae63b369',
         'tomaszow.maz.hc.internal@exclusive.pl', false);
-INSERT INTO phone_types (uuid, created_by, updated_by, phone_type)
-VALUES ('661f25a7-b2f3-4765-9cbd-b54eb15c1830', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
-        'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'Cellphone'),
-       ('d25734b0-3b40-41a5-9e94-4de4698c840a', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
-        'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'Landline');
---        ('0a97c062-b357-11ed-afa1-0242ac120002', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
---         'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'centrala, recepcja');
 INSERT INTO clinics_phones (uuid, created_by, updated_by, clinic, phone_type, phone, is_primary)
 VALUES ('c41abfe7-93fb-4557-b802-4f6e5d0ace5c', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
         'd0bcb328-c89d-4cf5-add9-61bab97124f8', '45e6da6d-c858-4ee9-a535-e5b4f50b6e54',
@@ -137,8 +147,8 @@ VALUES ('d92bd5fa-7d13-4b6a-92c7-becedcef3956', 'd0bcb328-c89d-4cf5-add9-61bab97
        ('9c255d7c-5df2-465b-a7e7-147be8f0337b', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
         'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'c94706ea-7e26-4b1f-a8f8-d5bb4f9b3806', 'Bożydar', 'Honoriusz',
         'Pacjent', '00000000004', 'XXX 000004', '1979-11-04', '7710000004');
-INSERT INTO appointments (uuid, created_by, updated_by, patient, doctor, clinic, description, recommendations, sick_leave,
-                          prescription, referral)
+INSERT INTO appointments (uuid, created_by, updated_by, patient, doctor, clinic, description, recommendations,
+                          sick_leave, prescription, referral)
 VALUES ('c50fc149-83de-401d-ba45-15497de8bb20', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
         'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'c94706ea-7e26-4b1f-a8f8-d5bb4f9b3806',
         '3d58a2ae-a2fa-44d6-bfa0-aa258bd18e76', 'f45ef247-e76c-45b5-85ae-163ca4e65316', 'description1',
@@ -275,3 +285,65 @@ VALUES ('ef40a883-8c00-421d-bf98-8a1f469beaa1', 'd0bcb328-c89d-4cf5-add9-61bab97
         'd0bcb328-c89d-4cf5-add9-61bab97124f8', '3d58a2ae-a2fa-44d6-bfa0-aa258bd18e76',
         DATEADD('DAY', 3, DATEADD('HOUR', 13, DATEADD('MINUTE', 0, CURRENT_DATE))),
         DATEADD('DAY', 3, DATEADD('HOUR', 13, DATEADD('MINUTE', 30, CURRENT_DATE))), null);
+INSERT INTO disease_types (uuid, created_by, updated_by, code, description)
+VALUES ('5f4e17c5-2f7d-4cf9-ba59-31ca9254c35f', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', '002', 'Choroby układu oddechowego'),
+       ('fcd93fe0-d14b-40bb-b6e1-e633a2e1ee89', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', '006', 'Choroby układu sercowo-naczyniowego'),
+       ('956c7067-71a2-44db-a79a-aa0d6a88204b', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', '013', 'Choroby umysłowe'),
+       ('c6a3c1d2-b5d8-423a-a30e-8aef329a8c1b', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', '019', 'Schorzenia neurologiczne'),
+       ('511adfe0-b381-11ed-afa1-0242ac120002', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', '101', 'Schorzenia niezdiagnozowane, hipochondryczne'),
+       ('abb49180-b381-11ed-afa1-0242ac120002', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', '001', 'Choroby kręgosłupa'),
+       ('b008056e-b381-11ed-afa1-0242ac120002', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', '055', 'Choroby układu pokarmowego'),
+       ('c4d405ec-b381-11ed-afa1-0242ac120002', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', '022', 'Przedawkowanie środków psychoaktywnych'),
+       ('cb987e1c-b381-11ed-afa1-0242ac120002', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', '031', 'Schorzenia psychologiczne'),
+       ('d7b601ec-b381-11ed-afa1-0242ac120002', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', '093', 'Choroby ogólne dróg oddechowych');
+INSERT INTO referrals (uuid, locality, referral_date, clinic_name, patient_full_name, patient_age, patient_address,
+                       patient_pesel, patient_phone, diagnosis, disease_type, purpose, examinations_performed)
+VALUES ('75e42b02-b371-11ed-afa1-0242ac120002', 'Zamość', '2023-02-19', 'Zamojskie Centrum Zdrowia', 'Stefan Chorowity',
+        45, 'Zielona 12, 22-405 Zamość', '00000005001', '600 700 800', 'Objawy przeziębienia lub grypy, wskazane badanie
+        górnych dróg oddechowych, pacjent skarży się, że choruje bardzo często', '5f4e17c5-2f7d-4cf9-ba59-31ca9254c35f',
+        'Nawracające infekcje', 'brak'),
+       ('cef821b8-7efc-483b-ae00-3745ba70453d', 'Zamość', '2023-02-19', 'Zamojskie Centrum Zdrowia', 'Marian Chorowity',
+        77, 'Zielona 14, 22-405 Zamość', '02300005001', '600 700 900', 'Pacjent skarży się na bóle w klatce, wskazane
+        badanie ekg', 'fcd93fe0-d14b-40bb-b6e1-e633a2e1ee89', 'Badania pod kątem miażdzycy', 'badanie płuc 12.2022'),
+       ('3cbf3d76-3ff7-4c2a-928a-17f7eed9053a', 'Wrocław', '2023-01-31', 'Wrocławskie Centrum Zdrowia', 'Jan Pękalski',
+        23, 'Strachowo 12, k. Wrocławia', '11000005001', '200 700 800', 'Objawy lękowe, pacjent skierowany do naszej
+        placówki w Zamościu', '956c7067-71a2-44db-a79a-aa0d6a88204b', 'Badanie psychiatryczne', 'RTG klatki piersiowej,
+        pantomogram na pocz. 2023'),
+       ('f0446cb7-10ae-4359-b75b-c5eb1ec2e8a6', 'Wrocław', '2023-02-18', 'Wrocławskie Centrum Zdrowia', 'Alina Głowonóg',
+        42, 'Zielona 19, 50-433 Wrocław', '00032005001', '600 230 800', 'Częste bóle głowy o podłożu migrenowym, wyniki
+        tomografii w normie, zalecane dalsze badania', 'c6a3c1d2-b5d8-423a-a30e-8aef329a8c1b', 'Rezonans, kontynuacja
+        badań głowy', 'tomografia głowy 11.2021'),
+       ('45b5a090-b381-11ed-afa1-0242ac120002', 'Wrocław', '2023-02-10', 'Wrocławskie Centrum Zdrowia', 'Joanna Hipo',
+        82, 'Despotyczna 35, 50-403 Wrocław', '00400005001', 'brak', 'Pacjentka z chorobą Alzheimera, zasadniczo
+        przyszła tylko z kimś porozmawiać, przepisałam witaminy, zaniepokoiła mnie wada postawy, na wszelki wypadek RTG
+        kręgosłupa', '511adfe0-b381-11ed-afa1-0242ac120002', 'Diagnoza prawdopodobnych zmian reumatycznych', 'brak'),
+       ('eee557d2-b381-11ed-afa1-0242ac120002', 'Gdynia', '2023-02-11', 'Gdyńskie Centrum Zdrowia', 'Usama ibn Halif',
+        55, 'Morska 3, 81-222 Gdynia', '00003005001', '600 700 333', 'Ból kręgosłupa lędźwiowego, wyniki RTG wskazują na
+        zaawansowaną lordozę, konieczne dalsze badania', 'abb49180-b381-11ed-afa1-0242ac120002', 'Choroby kręgosłupa,
+        zalecane badania nuklearne', 'RTG kręgosłupa'),
+       ('f30f699c-b381-11ed-afa1-0242ac120002', 'Gdynia', '2023-02-22', 'Gdyńskie Centrum Zdrowia', 'Anna Zdybna',
+        35, 'Leśna 12c, 81-205 Gdynia', '00100005001', '100 700 800', 'Objawy zatrucia, kieruję pacjentkę do pobliskiego
+        szpitala', 'b008056e-b381-11ed-afa1-0242ac120002','Komplikacje gastrologiczne, konieczny "japoniec"', 'brak'),
+       ('f706160e-b381-11ed-afa1-0242ac120002', 'Gdynia', '2023-02-25', 'Gdyńskie Centrum Zdrowia', 'Stefania Niebrała',
+        25, 'Krzaczasta 55 , 81-200 Gdynia', '14000005001', '600 700 000', 'Objawy przedawkowania środków
+        psychoaktywnych, pacjentka nie przyznaje się co brała, zawiadomione służby, wystawiłem skierowanie do szpitala',
+        'c4d405ec-b381-11ed-afa1-0242ac120002', 'Podejrzenie przedawkowania, możliwe schorzenia onkologiczne,
+        podejrzenie depresji', 'biopsja miesiąc temu, pacjentka nie podała szczegółów'),
+       ('fb336722-b381-11ed-afa1-0242ac120002', 'Tomaszów Mazowiecki', '2023-02-26', 'Tomaszowskie Centrum Zdrowia',
+        'Stefan Ojej', 60, 'Wesoła 6, 97-204 Tomaszów Mazowiecki', '20034005001', '222 700 800', 'Sam nie wie co mu
+        jest, słabo mu i źle na duszy, stan ogólny dobry, medycznych objawów brak, na kontrolę za tydzień',
+        'cb987e1c-b381-11ed-afa1-0242ac120002', 'Konsultacja psychologiczna', 'brak'),
+       ('00b91e26-b382-11ed-afa1-0242ac120002', 'Tomaszów Mazowiecki', '2023-02-26', 'Tomaszowskie Centrum Zdrowia',
+        'Janina Cudowna', 45, 'Piękna 2/3, 97-199 Tomaszów Mazowiecki', '00000665001', '620 700 800', 'Objawy
+        przeziębienia lub grypy, wskazane prześwietlenie płuc','d7b601ec-b381-11ed-afa1-0242ac120002', 'Podejrzenie
+        początkowej fazy zapalenia płuc', 'USG barku 01.2023, USG kolana 10.2022, USG szyi 05.2022');
