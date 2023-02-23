@@ -18,4 +18,9 @@ public class ClinicController {
     public ResponseEntity<Page<ClinicDto>> getAllClinics(@RequestParam Integer page) {
         return ResponseEntity.ok(clinicService.getAll(page));
     }
+
+    @GetMapping("/getDictionaryClinic")
+    public ResponseEntity<DictionaryItemsDto> getDictionaryClinic() {
+        return ResponseEntity.ok(clinicService.getAsDictionary());
+    }
 }

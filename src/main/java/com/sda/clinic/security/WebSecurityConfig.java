@@ -59,7 +59,10 @@ public class WebSecurityConfig { // extends WebSecurityConfigurerAdapter {
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .authorizeHttpRequests()
-                .requestMatchers("/api/auth/**", "/api/info/**", "/api/user/**").permitAll()
+                .requestMatchers("/api/auth/**").permitAll() // without Authorization
+                .requestMatchers("/api/info/**").permitAll() // without Authorization
+                .requestMatchers("/api/user/**").permitAll() // with Authorization
+                .requestMatchers("/api/schedule/**").permitAll() // with Authorization
                 .requestMatchers("/swagger-resources", "/swagger-resources/**").permitAll()
                 .requestMatchers("/configuration/ui", "/configuration/security").permitAll()
                 .requestMatchers("swagger-ui/index.html#", "/swagger-ui/**").permitAll()

@@ -24,7 +24,7 @@ public class DoctorCalendarDto {
                 .userUuid(entity.getUser().getUuid())
                 .startTime(entity.getStartTime())
                 .endTime(entity.getEndTime())
-                .appointment(entity.getAppointment().getUuid())
+                .appointment(entity.getAppointment() == null ? null : entity.getAppointment().getUuid())
                 .build();
     }
 
