@@ -34,15 +34,19 @@ VALUES ('70d38aec-7631-46bc-af92-438865a1b793', 'd0bcb328-c89d-4cf5-add9-61bab97
         '001555404', '2055244211', '55102065754455664412135432', 'Mazowieckie', 'Warszawa', 'Warszawa', 'Warszawa',
         'Zdrowa', '007', '1', '01-007', 'Warszawa', 52, 21);
 INSERT INTO company_emails (uuid, created_by, updated_by, company, email, is_primary)
-VALUES ('ef4befb8-b2ed-11ed-afa1-0242ac120002','d0bcb328-c89d-4cf5-add9-61bab97124f8',
+VALUES ('ef4befb8-b2ed-11ed-afa1-0242ac120002', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
         'd0bcb328-c89d-4cf5-add9-61bab97124f8', '70d38aec-7631-46bc-af92-438865a1b793',
         'bok.ecz@exclusive.pl', true),
-       ('b4c87868-b2f0-11ed-afa1-0242ac120002','d0bcb328-c89d-4cf5-add9-61bab97124f8',
+       ('b4c87868-b2f0-11ed-afa1-0242ac120002', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
         'd0bcb328-c89d-4cf5-add9-61bab97124f8', '70d38aec-7631-46bc-af92-438865a1b793',
         'kontakt.ecz@exclusive.pl', true),
-       ('f3fd3abe-b2f0-11ed-afa1-0242ac120002','d0bcb328-c89d-4cf5-add9-61bab97124f8',
+       ('f3fd3abe-b2f0-11ed-afa1-0242ac120002', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
         'd0bcb328-c89d-4cf5-add9-61bab97124f8', '70d38aec-7631-46bc-af92-438865a1b793',
         'biuro.ecz@exclusive.pl', true);
+-- INSERT INTO company_phones (uuid, created_by, updated_by, company, phone_type, phone, is_primary)
+-- VALUES ('48e7b0c8-b354-11ed-afa1-0242ac120002', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
+--         'd0bcb328-c89d-4cf5-add9-61bab97124f8', '70d38aec-7631-46bc-af92-438865a1b793',
+--         '0a97c062-b357-11ed-afa1-0242ac120002', '+48 22 022 00 01', true);
 INSERT INTO clinics (uuid, created_by, updated_by, company, province, district, community, locality, street, street_no,
                      flat_no, post_code, post, clinic_name, description, longitude, latitude)
 VALUES ('45e6da6d-c858-4ee9-a535-e5b4f50b6e54', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
@@ -55,13 +59,13 @@ VALUES ('45e6da6d-c858-4ee9-a535-e5b4f50b6e54', 'd0bcb328-c89d-4cf5-add9-61bab97
         'General practice, Emergency, Preventive Medicine, Allergy & Immunology', 51, 17),
        ('c9c138b1-d73b-4528-a628-dcc52d43435d', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
         'd0bcb328-c89d-4cf5-add9-61bab97124f8', '70d38aec-7631-46bc-af92-438865a1b793', 'Pomorskie', 'Gdynia', 'Gdynia',
-        'Gdynia', 'Lecznicza', '8', 'A-D', '81-200', 'Gdynia', 'Gdyńskie Centrum Zdrowotne', 'General practice, Emergency,
-        Genetics, Nuclear Medicine, Diagnostic Radiology', 54, 18),
+        'Gdynia', 'Lecznicza', '8', 'A-D', '81-200', 'Gdynia', 'Gdyńskie Centrum Zdrowotne', 'General practice,
+        Emergency, Genetics, Nuclear Medicine, Diagnostic Radiology', 54, 18),
        ('587c048e-060c-479c-94a1-8d65ae63b369', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
         'd0bcb328-c89d-4cf5-add9-61bab97124f8', '70d38aec-7631-46bc-af92-438865a1b793', 'Łódzkie',
         'Tomaszów Mazowiecki', 'Tomaszów Mazowiecki', 'Tomaszów Mazowiecki', 'Uzdrowiskowa', '4', '', '97-205',
-        'Tomaszów Mazowiecki', 'Tomaszowskie Centrum Zdrowotne', 'General practice, Neurology, Obstetrics and Gynecology,
-        Urology, Anesthesiology, Surgery ', 51, 20);
+        'Tomaszów Mazowiecki', 'Tomaszowskie Centrum Zdrowotne', 'General practice, Neurology, Obstetrics and
+        Gynecology, Urology, Anesthesiology, Surgery ', 51, 20);
 INSERT INTO clinics_emails (uuid, created_by, updated_by, clinic, email, is_primary)
 VALUES ('effcbd5c-16b0-44b9-b280-c15993ed987c', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
         'd0bcb328-c89d-4cf5-add9-61bab97124f8', '45e6da6d-c858-4ee9-a535-e5b4f50b6e54',
@@ -92,6 +96,8 @@ VALUES ('661f25a7-b2f3-4765-9cbd-b54eb15c1830', 'd0bcb328-c89d-4cf5-add9-61bab97
         'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'Cellphone'),
        ('d25734b0-3b40-41a5-9e94-4de4698c840a', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
         'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'Landline');
+--        ('0a97c062-b357-11ed-afa1-0242ac120002', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
+--         'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'centrala, recepcja');
 INSERT INTO clinics_phones (uuid, created_by, updated_by, clinic, phone_type, phone, is_primary)
 VALUES ('c41abfe7-93fb-4557-b802-4f6e5d0ace5c', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
         'd0bcb328-c89d-4cf5-add9-61bab97124f8', '45e6da6d-c858-4ee9-a535-e5b4f50b6e54',

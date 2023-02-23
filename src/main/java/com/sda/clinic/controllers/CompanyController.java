@@ -1,8 +1,6 @@
 package com.sda.clinic.controllers;
 
 import com.sda.clinic.models.company.CompanyDto;
-import com.sda.clinic.models.company.DictionaryItemsDto;
-import com.sda.clinic.models.company.clinic.ClinicDto;
 import com.sda.clinic.security.services.CompanyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -19,7 +17,7 @@ public class CompanyController {
 
     private final CompanyService companyService;
 
-    @GetMapping("/getAllCompanies")
+    @GetMapping("/getCompany")
     public ResponseEntity<Page<CompanyDto>> getAllCompanies(@RequestParam Integer page) {
         return ResponseEntity.ok(companyService.getAll(page));
     }
