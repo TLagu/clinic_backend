@@ -8,7 +8,9 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 import java.util.Set;
+import java.util.UUID;
 
 @Repository
 public interface ScheduleRepository extends JpaRepository<DoctorCalendar, Long> {
@@ -17,5 +19,6 @@ public interface ScheduleRepository extends JpaRepository<DoctorCalendar, Long> 
     Set<DoctorCalendar> findByDateRange(@Param("dateFrom") LocalDateTime dateFrom,
                                         @Param("dateTo") LocalDateTime dateTo,
                                         @Param("user") User user);
+    Optional<DoctorCalendar> findByUuid(@Param("uuid") UUID uuid);
 
 }

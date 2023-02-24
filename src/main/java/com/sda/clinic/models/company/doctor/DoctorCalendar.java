@@ -17,12 +17,12 @@ import java.time.LocalDateTime;
 @Table(name = "doctors_calendars")
 public class DoctorCalendar extends CompanyBase {
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_uuid")
     private User user;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "appointment")
     private Appointment appointment;
 

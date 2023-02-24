@@ -2,7 +2,6 @@ package com.sda.clinic.models.company.clinic;
 
 import com.sda.clinic.models.company.Company;
 import com.sda.clinic.models.company.CompanyBase;
-import com.sda.clinic.models.company.user.User;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -39,10 +38,6 @@ public class Clinic extends CompanyBase {
 
     private float longitude;
     private float latitude;
-
-    @OneToOne(mappedBy = "clinic", cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER, optional = false)
-    private User user;
 
     @OneToMany(mappedBy = "clinic", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<ClinicEmail> emails;

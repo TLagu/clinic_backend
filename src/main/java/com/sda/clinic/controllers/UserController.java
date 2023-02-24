@@ -60,9 +60,15 @@ public class UserController {
     }
 
     @GetMapping("/getDictionaryPatients")
-//    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_DOCTOR', 'ROLE_SECRETARY', 'ROLE_PATIENT')")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_DOCTOR', 'ROLE_SECRETARY', 'ROLE_PATIENT')")
     public ResponseEntity<DictionaryItemsDto> getDictionaryPatients() {
         return ResponseEntity.ok(userService.getPatientsAsDictionary());
+    }
+
+    @GetMapping("/getDictionaryDoctors")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_DOCTOR', 'ROLE_SECRETARY', 'ROLE_PATIENT')")
+    public ResponseEntity<DictionaryItemsDto> getDictionaryDoctors() {
+        return ResponseEntity.ok(userService.getDoctorsAsDictionary());
     }
 
 }

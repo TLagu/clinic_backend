@@ -17,7 +17,7 @@ public class ClinicPhone extends CompanyBase {
     @ManyToOne
     @JoinColumn(name = "clinic", referencedColumnName = "uuid", nullable = false)
     private Clinic clinic;
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "phone_type")
     private PhoneType phoneType;
     private String phone;

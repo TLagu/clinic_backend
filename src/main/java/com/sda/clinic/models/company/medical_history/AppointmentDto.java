@@ -1,7 +1,5 @@
 package com.sda.clinic.models.company.medical_history;
 
-import com.sda.clinic.models.company.clinic.ClinicDto;
-import com.sda.clinic.models.company.user.UserDto;
 import lombok.*;
 
 import java.util.UUID;

@@ -37,9 +37,9 @@ public class UserDto {
                 .append(entity.getUserAppDetails().getSecondName())
                 .append(" ")
                 .append(entity.getUserAppDetails().getLastName())
-                .append(" (")
+                .append(" (PESEL: ")
                 .append(entity.getUserAppDetails().getPesel())
-                .append(" )")
+                .append(")")
                 .toString();
         itemName.trim().replaceAll(" +", " ");
         return new DictionaryItemDto(entity.getUuid().toString(), itemName, entity.getStatus().toString());

@@ -43,7 +43,7 @@ public class SickLeave extends CompanyBase {
     private IncapacityCode code2;
     private IncapacityCode code3;
     private IncapacityCode code4;
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "disease_type")
     private DiseaseType diseaseType;
 

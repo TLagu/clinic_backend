@@ -17,7 +17,7 @@ public class DoctorCalendarDto {
     private UUID userUuid;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
-    private AppointmentDto appointment;
+    private UUID appointment;
 
     public static DoctorCalendarDto map(DoctorCalendar entity) {
         return DoctorCalendarDto.builder()
@@ -25,7 +25,7 @@ public class DoctorCalendarDto {
                 .userUuid(entity.getUser().getUuid())
                 .startTime(entity.getStartTime())
                 .endTime(entity.getEndTime())
-                .appointment(entity.getAppointment() == null ? null : AppointmentDto.map(entity.getAppointment()))
+                .appointment(entity.getAppointment() == null ? null : entity.getAppointment().getUuid())
                 .build();
     }
 

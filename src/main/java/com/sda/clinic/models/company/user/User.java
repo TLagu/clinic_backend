@@ -34,7 +34,7 @@ public class User extends CompanyBase {
     private String password;
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER, optional = false)
+            fetch = FetchType.LAZY, optional = false)
     private UserAppDetails userAppDetails;
 
     @ManyToMany(fetch = FetchType.LAZY)

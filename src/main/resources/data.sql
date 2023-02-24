@@ -21,12 +21,60 @@ VALUES ('0f751493-b9b8-4a2f-91b1-6241fce07d2c', 'd0bcb328-c89d-4cf5-add9-61bab97
         '$2a$10$hajUA5.9FlLdnod0ivu9l.xiCKMLzz3gkfaGuXINS0HwSFeK3aXHC', 'secretary'),
        ('c94706ea-7e26-4b1f-a8f8-d5bb4f9b3806', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
         'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'patient@wp.pl',
-        '$2a$10$fqlkjacmkpi2moS/yREamOjXhzGpzp3kYoME6.480YnCuzbnL0CGO', 'patient');
+        '$2a$10$fqlkjacmkpi2moS/yREamOjXhzGpzp3kYoME6.480YnCuzbnL0CGO', 'patient'),
+       ('ef0b6201-9438-4bc3-85ee-98650bae0a6f', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'doctor2@wp.pl',
+        '$2a$10$7CHFRj6KhAZwDcwMjlS7zec5IxpnlU7jVDiEv/nbCbC39geVifCU.', 'doctor2'),
+       ('b9e579d3-0ed5-4f87-851c-9cffe9d061be', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'doctor3@wp.pl',
+        '$2a$10$7CHFRj6KhAZwDcwMjlS7zec5IxpnlU7jVDiEv/nbCbC39geVifCU.', 'doctor3'),
+       ('9ea26d96-63e3-4b60-a8ec-47f030fbd9bc', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'doctor4@wp.pl',
+        '$2a$10$7CHFRj6KhAZwDcwMjlS7zec5IxpnlU7jVDiEv/nbCbC39geVifCU.', 'doctor4'),
+       ('2283a593-3a68-4585-82b0-f1ad9b5e7a6b', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'patient1@wp.pl',
+        '$2a$10$7CHFRj6KhAZwDcwMjlS7zec5IxpnlU7jVDiEv/nbCbC39geVifCU.', 'patient1'),
+       ('52ae8477-3f9d-4351-aa6a-ff84badfdd04', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'patient2@wp.pl',
+        '$2a$10$7CHFRj6KhAZwDcwMjlS7zec5IxpnlU7jVDiEv/nbCbC39geVifCU.', 'patient2'),
+       ('e29ff1a2-26a7-4897-bede-69622d5cfe5e', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'patient3@wp.pl',
+        '$2a$10$7CHFRj6KhAZwDcwMjlS7zec5IxpnlU7jVDiEv/nbCbC39geVifCU.', 'patient3'),
+       ('f4bc75ab-cac7-4e48-8a6c-6099d33cef9c', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'patient4@wp.pl',
+        '$2a$10$7CHFRj6KhAZwDcwMjlS7zec5IxpnlU7jVDiEv/nbCbC39geVifCU.', 'patient4'),
+       ('97ecdf66-112d-4243-b93f-0e33fae20d30', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'patient5@wp.pl',
+        '$2a$10$7CHFRj6KhAZwDcwMjlS7zec5IxpnlU7jVDiEv/nbCbC39geVifCU.', 'patient5'),
+       ('e552148d-84a4-43cb-812e-d8913c857e91', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'patient6@wp.pl',
+        '$2a$10$7CHFRj6KhAZwDcwMjlS7zec5IxpnlU7jVDiEv/nbCbC39geVifCU.', 'patient6'),
+       ('be05bade-dab5-493d-add0-9c71ed75441e', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'patient7@wp.pl',
+        '$2a$10$7CHFRj6KhAZwDcwMjlS7zec5IxpnlU7jVDiEv/nbCbC39geVifCU.', 'patient7'),
+       ('04980481-c840-4ec2-aeca-d2c06014b65c', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'patient8@wp.pl',
+        '$2a$10$7CHFRj6KhAZwDcwMjlS7zec5IxpnlU7jVDiEv/nbCbC39geVifCU.', 'patient8'),
+       ('6f4a3f7e-136a-42b2-ac98-b821c29443bf', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'patient9@wp.pl',
+        '$2a$10$7CHFRj6KhAZwDcwMjlS7zec5IxpnlU7jVDiEv/nbCbC39geVifCU.', 'patient9');
 INSERT INTO user_roles (user_uuid, role_uuid)
 VALUES ('0f751493-b9b8-4a2f-91b1-6241fce07d2c', 'd0bcb328-c89d-4cf5-add9-61bab97124f8'),
        ('3d58a2ae-a2fa-44d6-bfa0-aa258bd18e76', '160c8130-225a-4f52-8c7c-d1d17e129ac1'),
        ('df1d6dfb-9ecf-4923-9557-a240c30f23ec', 'a643c1f1-5438-465d-9388-be8ed0614a21'),
-       ('c94706ea-7e26-4b1f-a8f8-d5bb4f9b3806', 'b674bab6-e683-4c41-b403-4a25c7a482af');
+       ('c94706ea-7e26-4b1f-a8f8-d5bb4f9b3806', 'b674bab6-e683-4c41-b403-4a25c7a482af'),
+       ('ef0b6201-9438-4bc3-85ee-98650bae0a6f', '160c8130-225a-4f52-8c7c-d1d17e129ac1'),
+       ('b9e579d3-0ed5-4f87-851c-9cffe9d061be', '160c8130-225a-4f52-8c7c-d1d17e129ac1'),
+       ('9ea26d96-63e3-4b60-a8ec-47f030fbd9bc', '160c8130-225a-4f52-8c7c-d1d17e129ac1'),
+       ('2283a593-3a68-4585-82b0-f1ad9b5e7a6b', 'b674bab6-e683-4c41-b403-4a25c7a482af'),
+       ('52ae8477-3f9d-4351-aa6a-ff84badfdd04', 'b674bab6-e683-4c41-b403-4a25c7a482af'),
+       ('e29ff1a2-26a7-4897-bede-69622d5cfe5e', 'b674bab6-e683-4c41-b403-4a25c7a482af'),
+       ('f4bc75ab-cac7-4e48-8a6c-6099d33cef9c', 'b674bab6-e683-4c41-b403-4a25c7a482af'),
+       ('97ecdf66-112d-4243-b93f-0e33fae20d30', 'b674bab6-e683-4c41-b403-4a25c7a482af'),
+       ('e552148d-84a4-43cb-812e-d8913c857e91', 'b674bab6-e683-4c41-b403-4a25c7a482af'),
+       ('be05bade-dab5-493d-add0-9c71ed75441e', 'b674bab6-e683-4c41-b403-4a25c7a482af'),
+       ('04980481-c840-4ec2-aeca-d2c06014b65c', 'b674bab6-e683-4c41-b403-4a25c7a482af'),
+       ('6f4a3f7e-136a-42b2-ac98-b821c29443bf', 'b674bab6-e683-4c41-b403-4a25c7a482af');
 INSERT INTO company (uuid, created_by, updated_by, full_name, short_name, nip, regon, krs, account_number, province,
                      district, community, locality, street, street_no, flat_no, post_code, post, longitude, latitude)
 VALUES ('70d38aec-7631-46bc-af92-438865a1b793', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
@@ -146,7 +194,43 @@ VALUES ('d92bd5fa-7d13-4b6a-92c7-becedcef3956', 'd0bcb328-c89d-4cf5-add9-61bab97
         'Sekretarka', '00000000003', 'XXX 000003', '1982-08-03', '7710000003'),
        ('9c255d7c-5df2-465b-a7e7-147be8f0337b', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
         'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'c94706ea-7e26-4b1f-a8f8-d5bb4f9b3806', 'Bożydar', 'Honoriusz',
-        'Pacjent', '00000000004', 'XXX 000004', '1979-11-04', '7710000004');
+        'Pacjent', '00000000004', 'XXX 000004', '1979-11-04', '7710000004'),
+       ('ef0b6201-9438-4bc3-85ee-98650bae0a6f', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'ef0b6201-9438-4bc3-85ee-98650bae0a6f', 'Aleksander', null,
+        'Doktor2', '00000000005', 'XXX 000005', '1934-09-05', '7710000005'),
+       ('b9e579d3-0ed5-4f87-851c-9cffe9d061be', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'b9e579d3-0ed5-4f87-851c-9cffe9d061be', 'Grzegorz', 'Michał',
+        'Doktor3', '00000000006', 'XXX 000006', '2011-09-06', '7710000006'),
+       ('9ea26d96-63e3-4b60-a8ec-47f030fbd9bc', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', '9ea26d96-63e3-4b60-a8ec-47f030fbd9bc', 'Franciszek', 'Czesław',
+        'Doktor4', '00000000007', 'XXX 000007', '2011-09-07', '7710000007'),
+       ('2283a593-3a68-4585-82b0-f1ad9b5e7a6b', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', '2283a593-3a68-4585-82b0-f1ad9b5e7a6b', 'Maria', 'Anna',
+        'Pacjent1', '00000000008', 'XXX 000008', '1979-11-08', '7710000008'),
+       ('52ae8477-3f9d-4351-aa6a-ff84badfdd04', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', '52ae8477-3f9d-4351-aa6a-ff84badfdd04', 'Grażyna', null,
+        'Pacjent2', '00000000009', 'XXX 000009', '1979-11-09', '7710000009'),
+       ('e29ff1a2-26a7-4897-bede-69622d5cfe5e', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'e29ff1a2-26a7-4897-bede-69622d5cfe5e', 'Joanna', 'Ewelina',
+        'Pacjent3', '00000000010', 'XXX 000010', '1979-11-10', '7710000010'),
+       ('f4bc75ab-cac7-4e48-8a6c-6099d33cef9c', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'f4bc75ab-cac7-4e48-8a6c-6099d33cef9c', 'Krystyka', 'Hanna',
+        'Pacjent4', '00000000011', 'XXX 000011', '1979-11-11', '7710000011'),
+       ('97ecdf66-112d-4243-b93f-0e33fae20d30', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', '97ecdf66-112d-4243-b93f-0e33fae20d30', 'Patrycja', 'Beata',
+        'Pacjent5', '00000000012', 'XXX 000012', '1979-11-12', '7710000012'),
+       ('e552148d-84a4-43cb-812e-d8913c857e91', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'e552148d-84a4-43cb-812e-d8913c857e91', 'Maksymilian', null,
+        'Pacjent6', '00000000013', 'XXX 000013', '1979-11-13', '7710000013'),
+       ('be05bade-dab5-493d-add0-9c71ed75441e', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'be05bade-dab5-493d-add0-9c71ed75441e', 'Benedykt', null,
+        'Pacjent7', '00000000014', 'XXX 000014', '1979-11-14', '7710000014'),
+       ('04980481-c840-4ec2-aeca-d2c06014b65c', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', '04980481-c840-4ec2-aeca-d2c06014b65c', 'Czesław', 'Alojzy',
+        'Pacjent8', '00000000015', 'XXX 000015', '1979-11-15', '7710000015'),
+       ('6f4a3f7e-136a-42b2-ac98-b821c29443bf', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', '6f4a3f7e-136a-42b2-ac98-b821c29443bf', 'Barnaba', 'Wacław',
+        'Pacjent9', '00000000016', 'XXX 000016', '1979-11-16', '7710000016');
 INSERT INTO appointments (uuid, created_by, updated_by, patient, doctor, clinic, description, recommendations,
                           sick_leave, prescription, referral)
 VALUES ('c50fc149-83de-401d-ba45-15497de8bb20', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
@@ -154,27 +238,27 @@ VALUES ('c50fc149-83de-401d-ba45-15497de8bb20', 'd0bcb328-c89d-4cf5-add9-61bab97
         '3d58a2ae-a2fa-44d6-bfa0-aa258bd18e76', 'f45ef247-e76c-45b5-85ae-163ca4e65316', 'description1',
         'recommendations1', null, null, null),
        ('a97cd9df-1bd0-44b9-917b-ac58ad9be46b', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
-        'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'c94706ea-7e26-4b1f-a8f8-d5bb4f9b3806',
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', '2283a593-3a68-4585-82b0-f1ad9b5e7a6b',
         '3d58a2ae-a2fa-44d6-bfa0-aa258bd18e76', 'f45ef247-e76c-45b5-85ae-163ca4e65316', 'description2',
         'recommendations2', null, null, null),
        ('7024de11-7efc-4bb4-8655-3103762bbc5a', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
-        'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'c94706ea-7e26-4b1f-a8f8-d5bb4f9b3806',
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', '52ae8477-3f9d-4351-aa6a-ff84badfdd04',
         '3d58a2ae-a2fa-44d6-bfa0-aa258bd18e76', 'f45ef247-e76c-45b5-85ae-163ca4e65316', 'description3',
         'recommendations3', null, null, null),
        ('aedf0f6d-20be-487d-9725-bf091ff2bf6a', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
-        'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'c94706ea-7e26-4b1f-a8f8-d5bb4f9b3806',
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'e29ff1a2-26a7-4897-bede-69622d5cfe5e',
         '3d58a2ae-a2fa-44d6-bfa0-aa258bd18e76', 'f45ef247-e76c-45b5-85ae-163ca4e65316', 'description4',
         'recommendations4', null, null, null),
        ('8b84920a-64ab-49ab-b661-4436f349a244', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
-        'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'c94706ea-7e26-4b1f-a8f8-d5bb4f9b3806',
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'f4bc75ab-cac7-4e48-8a6c-6099d33cef9c',
         '3d58a2ae-a2fa-44d6-bfa0-aa258bd18e76', 'f45ef247-e76c-45b5-85ae-163ca4e65316', 'description5',
         'recommendations5', null, null, null),
        ('b8b3d6a6-da48-4371-8307-f2790b2e1bdc', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
-        'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'c94706ea-7e26-4b1f-a8f8-d5bb4f9b3806',
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', '97ecdf66-112d-4243-b93f-0e33fae20d30',
         '3d58a2ae-a2fa-44d6-bfa0-aa258bd18e76', 'f45ef247-e76c-45b5-85ae-163ca4e65316', 'description6',
         'recommendations6', null, null, null),
        ('225453a0-03e2-4dc4-99b9-49d73daae199', 'd0bcb328-c89d-4cf5-add9-61bab97124f8',
-        'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'c94706ea-7e26-4b1f-a8f8-d5bb4f9b3806',
+        'd0bcb328-c89d-4cf5-add9-61bab97124f8', 'e552148d-84a4-43cb-812e-d8913c857e91',
         '3d58a2ae-a2fa-44d6-bfa0-aa258bd18e76', 'f45ef247-e76c-45b5-85ae-163ca4e65316', 'description7',
         'recommendations7', null, null, null);
 INSERT INTO doctors_calendars (uuid, created_by, updated_by, user_uuid, start_time, end_time, appointment)
@@ -347,3 +431,19 @@ VALUES ('75e42b02-b371-11ed-afa1-0242ac120002', 'Zamość', '2023-02-19', 'Zamoj
         'Janina Cudowna', 45, 'Piękna 2/3, 97-199 Tomaszów Mazowiecki', '00000665001', '620 700 800', 'Objawy
         przeziębienia lub grypy, wskazane prześwietlenie płuc','d7b601ec-b381-11ed-afa1-0242ac120002', 'Podejrzenie
         początkowej fazy zapalenia płuc', 'USG barku 01.2023, USG kolana 10.2022, USG szyi 05.2022');
+UPDATE users SET clinic_uuid = '45e6da6d-c858-4ee9-a535-e5b4f50b6e54' WHERE uuid = '0f751493-b9b8-4a2f-91b1-6241fce07d2c';
+UPDATE users SET clinic_uuid = '45e6da6d-c858-4ee9-a535-e5b4f50b6e54' WHERE uuid = '3d58a2ae-a2fa-44d6-bfa0-aa258bd18e76';
+UPDATE users SET clinic_uuid = '45e6da6d-c858-4ee9-a535-e5b4f50b6e54' WHERE uuid = 'df1d6dfb-9ecf-4923-9557-a240c30f23ec';
+UPDATE users SET clinic_uuid = '45e6da6d-c858-4ee9-a535-e5b4f50b6e54' WHERE uuid = 'c94706ea-7e26-4b1f-a8f8-d5bb4f9b3806';
+UPDATE users SET clinic_uuid = 'f45ef247-e76c-45b5-85ae-163ca4e65316' WHERE uuid = 'ef0b6201-9438-4bc3-85ee-98650bae0a6f';
+UPDATE users SET clinic_uuid = 'c9c138b1-d73b-4528-a628-dcc52d43435d' WHERE uuid = 'b9e579d3-0ed5-4f87-851c-9cffe9d061be';
+UPDATE users SET clinic_uuid = '587c048e-060c-479c-94a1-8d65ae63b369' WHERE uuid = '9ea26d96-63e3-4b60-a8ec-47f030fbd9bc';
+UPDATE users SET clinic_uuid = 'f45ef247-e76c-45b5-85ae-163ca4e65316' WHERE uuid = '2283a593-3a68-4585-82b0-f1ad9b5e7a6b';
+UPDATE users SET clinic_uuid = 'f45ef247-e76c-45b5-85ae-163ca4e65316' WHERE uuid = '52ae8477-3f9d-4351-aa6a-ff84badfdd04';
+UPDATE users SET clinic_uuid = 'c9c138b1-d73b-4528-a628-dcc52d43435d' WHERE uuid = 'e29ff1a2-26a7-4897-bede-69622d5cfe5e';
+UPDATE users SET clinic_uuid = 'c9c138b1-d73b-4528-a628-dcc52d43435d' WHERE uuid = 'f4bc75ab-cac7-4e48-8a6c-6099d33cef9c';
+UPDATE users SET clinic_uuid = 'c9c138b1-d73b-4528-a628-dcc52d43435d' WHERE uuid = '97ecdf66-112d-4243-b93f-0e33fae20d30';
+UPDATE users SET clinic_uuid = '587c048e-060c-479c-94a1-8d65ae63b369' WHERE uuid = 'e552148d-84a4-43cb-812e-d8913c857e91';
+UPDATE users SET clinic_uuid = '587c048e-060c-479c-94a1-8d65ae63b369' WHERE uuid = 'be05bade-dab5-493d-add0-9c71ed75441e';
+UPDATE users SET clinic_uuid = '587c048e-060c-479c-94a1-8d65ae63b369' WHERE uuid = '04980481-c840-4ec2-aeca-d2c06014b65c';
+UPDATE users SET clinic_uuid = '587c048e-060c-479c-94a1-8d65ae63b369' WHERE uuid = '6f4a3f7e-136a-42b2-ac98-b821c29443bf';

@@ -67,4 +67,10 @@ public class UserService {
                 .map(UserDto::dictionary)
                 .collect(Collectors.toList()));
     }
+
+    public DictionaryItemsDto getDoctorsAsDictionary() {
+        return new DictionaryItemsDto(userRepository.findByRole("ROLE_DOCTOR").stream()
+                .map(UserDto::dictionary)
+                .collect(Collectors.toList()));
+    }
 }

@@ -14,7 +14,7 @@ import lombok.*;
 @Table(name = "doctors")
 public class Doctor extends CompanyBase {
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_uuid")
     private User user;
     private String pzw;

@@ -15,26 +15,26 @@ import lombok.*;
 @Table(name = "appointments")
 public class Appointment extends CompanyBase {
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "patient")
     private User patient;
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "doctor")
     private User doctor;
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "clinic")
     private Clinic clinic;
 
     private String description;
     private String recommendations;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "sick_leave")
     private SickLeave sickLeave;
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "prescription")
     private Prescription prescription;
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "referral")
     private Referral referral;
 }

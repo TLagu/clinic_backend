@@ -33,7 +33,7 @@ public class Referral extends CompanyBase {
     private String patientPhone;
 
     private String diagnosis;
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "disease_type")
     private DiseaseType diseaseType;
     private String purpose;
