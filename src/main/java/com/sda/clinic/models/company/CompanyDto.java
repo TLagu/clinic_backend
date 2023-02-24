@@ -34,7 +34,7 @@ public class CompanyDto {
 
     private Set<CompanyEmailDto> emails;
     private Set<CompanyPhoneDto> phones;
-    private Set<ClinicDto> clinics;
+    private Set<UUID> clinics;
 
     public static CompanyDto map(Company entity) {
         return CompanyDto.builder()
@@ -58,7 +58,7 @@ public class CompanyDto {
                 .latitude(entity.getLatitude())
                 .emails((entity.getEmails() == null) ? null : entity.getEmails().stream().map(CompanyEmailDto::map).collect(Collectors.toSet()))
                 .phones((entity.getPhones() == null) ? null : entity.getPhones().stream().map(CompanyPhoneDto::map).collect(Collectors.toSet()))
-                .clinics((entity.getClinics() == null) ? null : entity.getClinics().stream().map(ClinicDto::map).collect(Collectors.toSet()))
+                .clinics((entity.getClinics() == null) ? null : entity.getClinics().stream().map(CompanyBase::getUuid).collect(Collectors.toSet()))
                 .build();
     }
 }

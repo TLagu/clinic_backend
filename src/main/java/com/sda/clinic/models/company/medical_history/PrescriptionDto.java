@@ -4,12 +4,14 @@ import lombok.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Getter
 @Setter
 @Builder
 public class PrescriptionDto {
 
+    private UUID uuid;
     private String code;
     private String accessCode;
     private LocalDate issueDate;
@@ -26,6 +28,7 @@ public class PrescriptionDto {
 
     public static PrescriptionDto map(Prescription entity) {
         return PrescriptionDto.builder()
+                .uuid(entity.getUuid())
                 .code(entity.getCode())
                 .accessCode(entity.getAccessCode())
                 .issueDate(entity.getIssueDate())

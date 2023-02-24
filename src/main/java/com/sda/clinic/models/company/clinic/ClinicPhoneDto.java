@@ -21,7 +21,7 @@ public class ClinicPhoneDto {
         return ClinicPhoneDto.builder()
                 .uuid(entity.getUuid())
                 .clinicUuid(entity.getClinic().getUuid())
-                .phoneType(PhoneTypeDto.map(entity.getPhoneType()))
+                .phoneType(entity.getPhoneType() == null ? null : PhoneTypeDto.map(entity.getPhoneType()))
                 .phone(entity.getPhone())
                 .primary(entity.isPrimary())
                 .build();

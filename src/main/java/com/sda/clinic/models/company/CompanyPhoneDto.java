@@ -19,7 +19,7 @@ public class CompanyPhoneDto extends CompanyBase {
         return CompanyPhoneDto.builder()
                 .uuid(entity.getUuid())
                 .companyUuid(entity.getCompany().getUuid())
-                .phoneType(PhoneTypeDto.map(entity.getPhoneType()))
+                .phoneType(entity.getPhoneType() == null ? null : PhoneTypeDto.map(entity.getPhoneType()))
                 .phone(entity.getPhone())
                 .primary(entity.isPrimary())
                 .build();

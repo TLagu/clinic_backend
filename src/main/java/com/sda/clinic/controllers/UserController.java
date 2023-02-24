@@ -1,12 +1,14 @@
 package com.sda.clinic.controllers;
 
 import com.sda.clinic.models.GetUserResponse;
+import com.sda.clinic.models.company.DictionaryItemsDto;
 import com.sda.clinic.models.company.user.UserDto;
 import com.sda.clinic.security.services.UserDetailsImpl;
 import com.sda.clinic.security.services.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -25,6 +27,7 @@ public class UserController {
     private final PasswordEncoder encoder;
 
     @GetMapping("/getUser")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_DOCTOR', 'ROLE_SECRETARY', 'ROLE_PATIENT')")
     public ResponseEntity<GetUserResponse> getCurrentUser(Authentication authentication) {
         UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
 
@@ -36,14 +39,22 @@ public class UserController {
     }
 
     @GetMapping("/user")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_DOCTOR', 'ROLE_SECRETARY', 'ROLE_PATIENT')")
     public ResponseEntity<UserDto> getCurrentUserDetails(@RequestParam String username) {
         return ResponseEntity.ok(userService.loadUserByUsername(username));
     }
 
     @PutMapping("/user")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_DOCTOR', 'ROLE_SECRETARY', 'ROLE_PATIENT')")
     public ResponseEntity<?> modify(@RequestBody UserDto request) {
         userService.modify(request, encoder);
         return new ResponseEntity<>(null, HttpStatus.OK);
+    }
+
+    @GetMapping("/getDictionaryPatients")
+//    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_DOCTOR', 'ROLE_SECRETARY', 'ROLE_PATIENT')")
+    public ResponseEntity<DictionaryItemsDto> getDictionaryPatients() {
+        return ResponseEntity.ok(userService.getPatientsAsDictionary());
     }
 
 }

@@ -15,7 +15,7 @@ public class SickLeaveDto {
     private String number;
     private String pesel;
     private String patient;
-    private InsuredType insuredType;
+    private String insuredType;
     private LocalDate birthDayInsured;
     private String postCode;
     private String post;
@@ -26,11 +26,11 @@ public class SickLeaveDto {
     private LocalDate endDate;
     private LocalDate hospitalStartDate;
     private LocalDate hospitalEndDate;
-    private IndicationType indicationType;
-    private IncapacityCode code1;
-    private IncapacityCode code2;
-    private IncapacityCode code3;
-    private IncapacityCode code4;
+    private String indicationType;
+    private String code1;
+    private String code2;
+    private String code3;
+    private String code4;
     private DiseaseTypeDto diseaseType;
 
     public static SickLeaveDto map(SickLeave entity) {
@@ -40,7 +40,7 @@ public class SickLeaveDto {
                 .number(entity.getNumber())
                 .pesel(entity.getPesel())
                 .patient(entity.getPatient())
-                .insuredType(entity.getInsuredType())
+                .insuredType(entity.getInsuredType() == null ? null : entity.getInsuredType().toString())
                 .birthDayInsured(entity.getBirthDayInsured())
                 .postCode(entity.getPostCode())
                 .post(entity.getPost())
@@ -51,12 +51,12 @@ public class SickLeaveDto {
                 .endDate(entity.getEndDate())
                 .hospitalStartDate(entity.getHospitalStartDate())
                 .hospitalEndDate(entity.getHospitalEndDate())
-                .indicationType(entity.getIndicationType())
-                .code1(entity.getCode1())
-                .code2(entity.getCode2())
-                .code3(entity.getCode3())
-                .code4(entity.getCode4())
-                .diseaseType(DiseaseTypeDto.map(entity.getDiseaseType()))
+                .indicationType(entity.getIndicationType() == null ? null : entity.getIndicationType().toString())
+                .code1(entity.getCode1() == null ? null : entity.getCode1().toString())
+                .code2(entity.getCode2() == null ? null : entity.getCode2().toString())
+                .code3(entity.getCode3() == null ? null : entity.getCode3().toString())
+                .code4(entity.getCode4() == null ? null : entity.getCode4().toString())
+                .diseaseType(entity.getDiseaseType() == null ? null : DiseaseTypeDto.map(entity.getDiseaseType()))
                 .build();
     }
 

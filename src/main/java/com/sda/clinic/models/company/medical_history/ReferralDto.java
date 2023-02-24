@@ -38,7 +38,7 @@ public class ReferralDto {
                 .patientPesel(entity.getPatientPesel())
                 .patientPhone(entity.getPatientPhone())
                 .diagnosis(entity.getDiagnosis())
-                .diseaseType(DiseaseTypeDto.map(entity.getDiseaseType()))
+                .diseaseType(entity.getDiseaseType() == null ? null : DiseaseTypeDto.map(entity.getDiseaseType()))
                 .purpose(entity.getPurpose())
                 .examinationsPerformed(entity.getExaminationsPerformed())
                 .build();

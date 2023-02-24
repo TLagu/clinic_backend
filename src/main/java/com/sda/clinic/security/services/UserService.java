@@ -1,6 +1,8 @@
 package com.sda.clinic.security.services;
 
+import com.sda.clinic.models.company.DictionaryItemsDto;
 import com.sda.clinic.models.company.clinic.Clinic;
+import com.sda.clinic.models.company.clinic.ClinicDto;
 import com.sda.clinic.models.company.user.User;
 import com.sda.clinic.models.company.user.UserDto;
 import com.sda.clinic.repository.ClinicRepository;
@@ -12,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -51,5 +54,11 @@ public class UserService {
         user.getUserAppDetails().setNip(request.getUserAppDetails().getNip());
         user.setClinic(clinic);
         userRepository.saveAndFlush(user);
+    }
+
+    public DictionaryItemsDto getPatientsAsDictionary() {
+        return new DictionaryItemsDto(userRepository.findByRole("ROLE_PATIENT").stream()
+                .map(UserDto::dictionary)
+                .collect(Collectors.toList()));
     }
 }
