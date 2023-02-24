@@ -1,13 +1,15 @@
 package com.sda.clinic.security.services;
 
+import com.sda.clinic.constants.Constants;
 import com.sda.clinic.models.company.DictionaryItemsDto;
 import com.sda.clinic.models.company.clinic.Clinic;
-import com.sda.clinic.models.company.clinic.ClinicDto;
 import com.sda.clinic.models.company.user.User;
 import com.sda.clinic.models.company.user.UserDto;
 import com.sda.clinic.repository.ClinicRepository;
 import com.sda.clinic.repository.UserRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -22,6 +24,10 @@ public class UserService {
 
     private final UserRepository userRepository;
     private final ClinicRepository clinicRepository;
+
+    public Page<UserDto> getAllUsers(int page) {
+        return userRepository.findAll(PageRequest.of(page, Constants.DefaultPageSize)).map(UserDto::map);
+    }
 
     @Transactional
     public UserDto loadUserByUsername(String username) throws UsernameNotFoundException {

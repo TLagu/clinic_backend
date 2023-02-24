@@ -2,10 +2,12 @@ package com.sda.clinic.controllers;
 
 import com.sda.clinic.models.GetUserResponse;
 import com.sda.clinic.models.company.DictionaryItemsDto;
+import com.sda.clinic.models.company.clinic.ClinicDto;
 import com.sda.clinic.models.company.user.UserDto;
 import com.sda.clinic.security.services.UserDetailsImpl;
 import com.sda.clinic.security.services.UserService;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -25,6 +27,12 @@ public class UserController {
     private final UserService userService;
 
     private final PasswordEncoder encoder;
+
+    @GetMapping("/getAllUsers")
+//    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    public ResponseEntity<Page<UserDto>> getAllUsers(@RequestParam Integer page) {
+        return ResponseEntity.ok(userService.getAllUsers(page));
+    }
 
     @GetMapping("/getUser")
     @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_DOCTOR', 'ROLE_SECRETARY', 'ROLE_PATIENT')")
