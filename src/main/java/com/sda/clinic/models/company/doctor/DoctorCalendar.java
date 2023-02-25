@@ -22,10 +22,8 @@ public class DoctorCalendar extends CompanyBase {
     private User user;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
-    @OneToOne(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    @OneToOne(fetch = FetchType.LAZY, cascade=CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "appointment")
     private Appointment appointment;
 
 }
-
-//one-to-one medical_history.Appointment

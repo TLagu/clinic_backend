@@ -1,9 +1,6 @@
 package com.sda.clinic.models.company.doctor;
 
-import com.sda.clinic.models.company.medical_history.AppointmentDto;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -30,5 +27,3 @@ public class DoctorCalendarDto {
     }
 
 }
-
-//one-to-one medical_history.Appointment

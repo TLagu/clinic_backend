@@ -74,4 +74,8 @@ public class UserService {
                 .map(UserDto::dictionary)
                 .collect(Collectors.toList()));
     }
+
+//    public UserDto deleteUser(UUID uuid) {
+//        return userRepository<UserDto>.deleteById(uuid);
+//    }
 }

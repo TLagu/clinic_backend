@@ -3,6 +3,7 @@ package com.sda.clinic.controllers;
 import com.sda.clinic.models.GetUserResponse;
 import com.sda.clinic.models.company.DictionaryItemsDto;
 import com.sda.clinic.models.company.user.UserDto;
+import com.sda.clinic.repository.UserRepository;
 import com.sda.clinic.security.services.UserDetailsImpl;
 import com.sda.clinic.security.services.UserService;
 import lombok.AllArgsConstructor;
@@ -16,6 +17,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @RestController
@@ -24,6 +26,8 @@ import java.util.stream.Collectors;
 public class UserController {
 
     private final UserService userService;
+
+    private final UserRepository userRepository;
 
     private final PasswordEncoder encoder;
 
@@ -70,4 +74,9 @@ public class UserController {
         return ResponseEntity.ok(userService.getDoctorsAsDictionary());
     }
 
+    @DeleteMapping("/delete{uuid}")
+    public ResponseEntity<HttpStatus> deleteUser(@PathVariable("uuid") UUID uuid) {
+            userRepository.deleteById(uuid);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 }
