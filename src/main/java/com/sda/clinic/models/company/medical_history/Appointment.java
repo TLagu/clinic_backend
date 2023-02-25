@@ -15,13 +15,13 @@ import lombok.*;
 @Table(name = "appointments")
 public class Appointment extends CompanyBase {
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(cascade=CascadeType.ALL)
     @JoinColumn(name = "patient")
     private User patient;
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(cascade=CascadeType.ALL)
     @JoinColumn(name = "doctor")
     private User doctor;
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(cascade=CascadeType.ALL)
     @JoinColumn(name = "clinic")
     private Clinic clinic;
 

@@ -32,15 +32,14 @@ public class UserDto {
     }
 
     public static DictionaryItemDto dictionary(User entity) {
-        String itemName = new StringBuilder(entity.getUserAppDetails().getFirstName())
-                .append(" ")
-                .append(entity.getUserAppDetails().getSecondName())
-                .append(" ")
-                .append(entity.getUserAppDetails().getLastName())
-                .append(" (PESEL: ")
-                .append(entity.getUserAppDetails().getPesel())
-                .append(")")
-                .toString();
+        String itemName = entity.getUserAppDetails().getFirstName() +
+                " " +
+                (entity.getUserAppDetails().getSecondName() == null ? "" : entity.getUserAppDetails().getSecondName()) +
+                " " +
+                entity.getUserAppDetails().getLastName() +
+                " (PESEL: " +
+                entity.getUserAppDetails().getPesel() +
+                ")";
         itemName.trim().replaceAll(" +", " ");
         return new DictionaryItemDto(entity.getUuid().toString(), itemName, entity.getStatus().toString());
 

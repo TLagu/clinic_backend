@@ -5,6 +5,7 @@ import com.sda.clinic.models.company.doctor.DoctorCalendar;
 import com.sda.clinic.models.company.doctor.DoctorCalendarDto;
 import com.sda.clinic.models.company.medical_history.Appointment;
 import com.sda.clinic.models.company.medical_history.AppointmentDto;
+import com.sda.clinic.models.company.role.RoleType;
 import com.sda.clinic.models.company.user.User;
 import com.sda.clinic.repository.AppointmentRepository;
 import com.sda.clinic.repository.ScheduleRepository;
@@ -30,7 +31,8 @@ public class ScheduleService {
 
     public ScheduleDto getScheduleByDate(String date, String userUuid) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        LocalDateTime dateTime = LocalDate.parse(date, formatter).atStartOfDay();
+        LocalDateTime dateTime =
+                LocalDate.parse(date, formatter).atStartOfDay();
         LocalDateTime dateFrom = dateTime.truncatedTo(ChronoUnit.DAYS);
         LocalDateTime dateTo = dateFrom.plusDays(1);
         if (userUuid == null || userUuid.isBlank()) {
@@ -38,8 +40,10 @@ public class ScheduleService {
         }
         UUID uuid = UUID.fromString(userUuid);
         User user = userRepository.findByUuid(uuid)
-                .orElseThrow(() -> new IllegalArgumentException("Nie znaleziono użytkownika!!!"));
-        Set<DoctorCalendar> doctorCalendar = scheduleRepository.findByDateRange(dateFrom, dateTo, user);
+                .orElseThrow(() -> new IllegalArgumentException("Nie " +
+                        "znaleziono użytkownika!!!"));
+        Set<DoctorCalendar> doctorCalendar =
+                scheduleRepository.findByDateRange(dateFrom, dateTo, user);
         return new ScheduleDto(doctorCalendar.stream()
                 .map(DoctorCalendarDto::map)
                 .collect(Collectors.toList()), dateFrom.toString());
@@ -49,8 +53,10 @@ public class ScheduleService {
         if (request.getUuid() == null) {
             throw new IllegalArgumentException("Błąd przesłania danych!!!");
         }
-        Appointment appointment = appointmentRepository.findByUuid(request.getUuid())
-                .orElseThrow(() -> new IllegalArgumentException("Nie znaleziono terminu!!!"));
+        Appointment appointment =
+                appointmentRepository.findByUuid(request.getUuid())
+                        .orElseThrow(() -> new IllegalArgumentException("Nie " +
+                                "znaleziono terminu!!!"));
         appointment.setDescription(request.getDescription());
         appointment.setRecommendations(request.getRecommendations());
         appointmentRepository.saveAndFlush(appointment);
@@ -62,7 +68,45 @@ public class ScheduleService {
         }
         UUID uuid = UUID.fromString(scheduleUuid);
         Appointment appointment = appointmentRepository.findByUuid(uuid)
-                .orElseThrow(() -> new IllegalArgumentException("Nie znaleziono terminu!!!"));
+                .orElseThrow(() -> new IllegalArgumentException("Nie " +
+                        "znaleziono terminu!!!"));
         return AppointmentDto.map(appointment);
+    }
+
+    public void addPatientSchedule(UUID scheduleUuid, UUID doctorUuid,
+                                   UUID patientUuid) {
+        if (scheduleUuid == null) {
+            throw new IllegalArgumentException("Nie znaleziono wolnego " +
+                    "terminu!!!");
+        }
+        if (doctorUuid == null) {
+            throw new IllegalArgumentException("Nie znaleziono lekarza!!!");
+        }
+        if (patientUuid == null) {
+            throw new IllegalArgumentException("Nie znaleziono wolnego " +
+                    "pacjenta!!!");
+        }
+        DoctorCalendar schedule =
+                scheduleRepository.findByUuid(scheduleUuid)
+                        .orElseThrow(() -> new IllegalArgumentException("Nie " +
+                                "znaleziono terminu!!!"));
+        User doctor =
+                userRepository.findByUuidAndRole(doctorUuid,
+                                RoleType.ROLE_DOCTOR)
+                        .orElseThrow(() -> new IllegalArgumentException("Nie " +
+                                "znaleziono lekarza!!!"));
+        User patient =
+                userRepository.findByUuidAndRole(patientUuid
+                                , RoleType.ROLE_PATIENT)
+                        .orElseThrow(() -> new IllegalArgumentException("Nie " +
+                                "znaleziono pacjenta!!!"));
+        Appointment appointment = new Appointment(patient, doctor,
+                doctor.getClinic(), null, null, null, null, null);
+        appointment.setCreatedBy(patientUuid);
+        appointment.setUpdatedBy(patientUuid);
+        schedule.setAppointment(appointment);
+        schedule.setUpdatedBy(patient.getUuid());
+        appointmentRepository.saveAndFlush(appointment);
+        scheduleRepository.saveAndFlush(schedule);
     }
 }

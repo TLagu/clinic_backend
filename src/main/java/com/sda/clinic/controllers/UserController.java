@@ -2,7 +2,6 @@ package com.sda.clinic.controllers;
 
 import com.sda.clinic.models.GetUserResponse;
 import com.sda.clinic.models.company.DictionaryItemsDto;
-import com.sda.clinic.models.company.clinic.ClinicDto;
 import com.sda.clinic.models.company.user.UserDto;
 import com.sda.clinic.security.services.UserDetailsImpl;
 import com.sda.clinic.security.services.UserService;
@@ -29,7 +28,7 @@ public class UserController {
     private final PasswordEncoder encoder;
 
     @GetMapping("/getAllUsers")
-//    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<Page<UserDto>> getAllUsers(@RequestParam Integer page) {
         return ResponseEntity.ok(userService.getAllUsers(page));
     }

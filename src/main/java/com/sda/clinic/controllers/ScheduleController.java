@@ -1,7 +1,6 @@
 package com.sda.clinic.controllers;
 
 import com.sda.clinic.models.company.ScheduleDto;
-import com.sda.clinic.models.company.doctor.DoctorCalendarDto;
 import com.sda.clinic.models.company.medical_history.AppointmentDto;
 import com.sda.clinic.security.services.ScheduleService;
 import lombok.AllArgsConstructor;
@@ -33,6 +32,13 @@ public class ScheduleController {
     @PreAuthorize("hasRole('ROLE_DOCTOR')")
     public ResponseEntity<?> modifyByDoctor(@RequestBody AppointmentDto request) {
         scheduleService.modifyByDoctor(request);
+        return new ResponseEntity<>(null, HttpStatus.OK);
+    }
+
+    @PostMapping("/addPatientSchedule")
+    @PreAuthorize("hasRole('ROLE_PATIENT')")
+    public ResponseEntity<?> addPatientSchedule(@RequestBody AppointmentDto request) {
+        scheduleService.addPatientSchedule(request.getUuid(), request.getDoctor(), request.getPatient());
         return new ResponseEntity<>(null, HttpStatus.OK);
     }
 

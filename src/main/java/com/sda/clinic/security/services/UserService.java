@@ -3,6 +3,7 @@ package com.sda.clinic.security.services;
 import com.sda.clinic.constants.Constants;
 import com.sda.clinic.models.company.DictionaryItemsDto;
 import com.sda.clinic.models.company.clinic.Clinic;
+import com.sda.clinic.models.company.role.RoleType;
 import com.sda.clinic.models.company.user.User;
 import com.sda.clinic.models.company.user.UserDto;
 import com.sda.clinic.repository.ClinicRepository;
@@ -63,13 +64,13 @@ public class UserService {
     }
 
     public DictionaryItemsDto getPatientsAsDictionary() {
-        return new DictionaryItemsDto(userRepository.findByRole("ROLE_PATIENT").stream()
+        return new DictionaryItemsDto(userRepository.findByRole(RoleType.ROLE_PATIENT).stream()
                 .map(UserDto::dictionary)
                 .collect(Collectors.toList()));
     }
 
     public DictionaryItemsDto getDoctorsAsDictionary() {
-        return new DictionaryItemsDto(userRepository.findByRole("ROLE_DOCTOR").stream()
+        return new DictionaryItemsDto(userRepository.findByRole(RoleType.ROLE_DOCTOR).stream()
                 .map(UserDto::dictionary)
                 .collect(Collectors.toList()));
     }

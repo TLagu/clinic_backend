@@ -22,7 +22,7 @@ public class DoctorCalendar extends CompanyBase {
     private User user;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
     @JoinColumn(name = "appointment")
     private Appointment appointment;
 
