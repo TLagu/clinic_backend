@@ -49,7 +49,7 @@ public class UserController {
         return ResponseEntity.ok(new GetUserResponse(userDetails.getUsername(), userDetails.getEmail(), roles));
     }
 
-    @GetMapping("/user")
+    @GetMapping("/getUserDetails")
     @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_DOCTOR', 'ROLE_SECRETARY', 'ROLE_PATIENT')")
     public ResponseEntity<UserDto> getCurrentUserDetails(@RequestParam String username) {
         return ResponseEntity.ok(userService.loadUserByUsername(username));

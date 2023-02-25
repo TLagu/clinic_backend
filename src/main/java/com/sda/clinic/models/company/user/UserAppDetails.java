@@ -21,18 +21,16 @@ public class UserAppDetails extends CompanyBase {
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_uuid")
     private User user;
-    @NotNull
-    @Size(min = 3, max = 50)
+    @Size(max = 50)
     @Column(name = "first_name")
     private String firstName;
     @Size(max = 50)
     @Column(name = "second_name")
     private String secondName;
-    @NotNull
-    @Size(min = 3, max = 50)
+    @Size(max = 50)
     @Column(name = "last_name")
     private String lastName;
-    @Size(min = 11, max = 11)
+    @Size(max = 11)
     private String pesel;
     @Size(max = 20)
     @Column(name = "id_number")

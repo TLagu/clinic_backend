@@ -3,15 +3,18 @@ package com.sda.clinic.controllers;
 import com.sda.clinic.models.company.role.RoleType;
 import com.sda.clinic.models.company.role.Role;
 import com.sda.clinic.models.company.user.User;
+import com.sda.clinic.models.company.user.UserAppDetails;
 import com.sda.clinic.payload.request.LoginRequest;
 import com.sda.clinic.payload.request.SignupRequest;
 import com.sda.clinic.payload.response.JwtResponse;
 import com.sda.clinic.payload.response.MessageResponse;
 import com.sda.clinic.repository.RoleRepository;
+import com.sda.clinic.repository.UserDetailsRepository;
 import com.sda.clinic.repository.UserRepository;
 import com.sda.clinic.security.jwt.JwtUtils;
 import com.sda.clinic.security.services.UserDetailsImpl;
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -31,20 +34,14 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/auth")
+@RequiredArgsConstructor
 public class AuthController {
     private final AuthenticationManager authenticationManager;
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
+    private final UserDetailsRepository userDetailsRepository;
     private final PasswordEncoder encoder;
     private final JwtUtils jwtUtils;
-
-    public AuthController(AuthenticationManager authenticationManager, UserRepository userRepository, RoleRepository roleRepository, PasswordEncoder encoder, JwtUtils jwtUtils) {
-        this.authenticationManager = authenticationManager;
-        this.userRepository = userRepository;
-        this.roleRepository = roleRepository;
-        this.encoder = encoder;
-        this.jwtUtils = jwtUtils;
-    }
 
     @PostMapping("/signin")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
@@ -121,6 +118,14 @@ public class AuthController {
 
         user.setRoles(roles);
         userRepository.save(user);
+
+        User newUser = new User();
+        newUser = userRepository.findByUsername(signUpRequest.getUsername()).orElseThrow(() -> new RuntimeException(
+                "Error: User is not found."));
+        UserAppDetails userAppDetails = new UserAppDetails();
+        userAppDetails.setUser(newUser);
+
+        userDetailsRepository.saveAndFlush(userAppDetails);
 
         return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
     }
