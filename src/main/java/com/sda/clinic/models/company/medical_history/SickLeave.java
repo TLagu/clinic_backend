@@ -3,6 +3,8 @@ package com.sda.clinic.models.company.medical_history;
 import com.sda.clinic.models.company.CompanyBase;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
 
 import java.time.LocalDate;
 
@@ -13,6 +15,8 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "sick_leaves")
+@SQLDelete(sql = "UPDATE sick_leavess SET status = 'DELETED' WHERE uuid = ?")
+@Where(clause = "status = 'ACTIVE'")
 public class SickLeave extends CompanyBase {
 
     private String series;

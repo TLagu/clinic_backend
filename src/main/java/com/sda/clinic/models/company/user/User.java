@@ -6,6 +6,8 @@ import com.sda.clinic.models.company.role.Role;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.*;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -19,6 +21,8 @@ import java.util.Set;
                 @UniqueConstraint(columnNames = "username"),
                 @UniqueConstraint(columnNames = "email")
         })
+@SQLDelete(sql = "UPDATE users SET status = 'DELETED' WHERE uuid = ?")
+@Where(clause = "status = 'ACTIVE'")
 public class User extends CompanyBase {
 
     @NotBlank

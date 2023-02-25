@@ -4,6 +4,8 @@ import com.sda.clinic.models.company.CompanyBase;
 import com.sda.clinic.models.company.user.User;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
 
 @Getter
 @Setter
@@ -12,6 +14,8 @@ import lombok.*;
 
 @Entity
 @Table(name = "doctors")
+@SQLDelete(sql = "UPDATE doctors SET status = 'DELETED' WHERE uuid = ?")
+@Where(clause = "status = 'ACTIVE'")
 public class Doctor extends CompanyBase {
 
     @OneToOne(fetch = FetchType.LAZY)

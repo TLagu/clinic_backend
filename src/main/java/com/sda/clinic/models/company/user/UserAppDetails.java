@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.*;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
 
 import java.time.LocalDate;
 
@@ -12,6 +14,8 @@ import java.time.LocalDate;
 @Setter
 @Entity
 @Table(name = "users_details")
+@SQLDelete(sql = "UPDATE users_details SET status = 'DELETED' WHERE uuid = ?")
+@Where(clause = "status = 'ACTIVE'")
 public class UserAppDetails extends CompanyBase {
 
     @OneToOne(fetch = FetchType.LAZY)

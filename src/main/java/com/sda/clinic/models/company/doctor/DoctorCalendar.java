@@ -5,6 +5,8 @@ import com.sda.clinic.models.company.medical_history.Appointment;
 import com.sda.clinic.models.company.user.User;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
 
 import java.time.LocalDateTime;
 
@@ -15,6 +17,8 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "doctors_calendars")
+@SQLDelete(sql = "UPDATE doctors_calendars SET status = 'DELETED' WHERE uuid = ?")
+@Where(clause = "status = 'ACTIVE'")
 public class DoctorCalendar extends CompanyBase {
 
     @OneToOne(fetch = FetchType.LAZY)

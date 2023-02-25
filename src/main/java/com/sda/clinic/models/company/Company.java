@@ -3,6 +3,8 @@ package com.sda.clinic.models.company;
 import com.sda.clinic.models.company.clinic.Clinic;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
 
 import java.util.Set;
 
@@ -13,6 +15,8 @@ import java.util.Set;
 
 @Entity
 @Table(name = "company")
+@SQLDelete(sql = "UPDATE company SET status = 'DELETED' WHERE uuid = ?")
+@Where(clause = "status = 'ACTIVE'")
 public class Company extends CompanyBase {
 
     @Column(name = "full_name")

@@ -4,6 +4,8 @@ import com.sda.clinic.models.company.CompanyBase;
 import com.sda.clinic.models.company.PhoneType;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
 
 @Getter
 @Setter
@@ -12,6 +14,8 @@ import lombok.*;
 
 @Entity
 @Table(name = "clinics_phones")
+@SQLDelete(sql = "UPDATE clinics_phones SET status = 'DELETED' WHERE uuid = ?")
+@Where(clause = "status = 'ACTIVE'")
 public class ClinicPhone extends CompanyBase {
 
     @ManyToOne
