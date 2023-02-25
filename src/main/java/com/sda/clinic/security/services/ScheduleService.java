@@ -106,7 +106,6 @@ public class ScheduleService {
         appointment.setUpdatedBy(patientUuid);
         schedule.setAppointment(appointment);
         schedule.setUpdatedBy(patient.getUuid());
-        appointmentRepository.saveAndFlush(appointment);
         scheduleRepository.saveAndFlush(schedule);
     }
 }
