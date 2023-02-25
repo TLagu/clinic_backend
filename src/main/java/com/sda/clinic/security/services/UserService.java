@@ -75,7 +75,10 @@ public class UserService {
                 .collect(Collectors.toList()));
     }
 
-//    public UserDto deleteUser(UUID uuid) {
-//        return userRepository<UserDto>.deleteById(uuid);
-//    }
+    public void deleteByUuid(UUID uuid) {
+        User user = userRepository.findByUuid(uuid).orElseThrow(() -> new IllegalArgumentException("Nie " +
+                "znaleziono użytkownika!!!"));
+
+        userRepository.delete(user);
+    }
 }

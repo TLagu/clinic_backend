@@ -26,9 +26,6 @@ import java.util.stream.Collectors;
 public class UserController {
 
     private final UserService userService;
-
-    private final UserRepository userRepository;
-
     private final PasswordEncoder encoder;
 
     @GetMapping("/getAllUsers")
@@ -76,7 +73,7 @@ public class UserController {
 
     @DeleteMapping("/delete{uuid}")
     public ResponseEntity<HttpStatus> deleteUser(@PathVariable("uuid") UUID uuid) {
-            userRepository.deleteById(uuid);
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        userService.deleteByUuid(uuid);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
